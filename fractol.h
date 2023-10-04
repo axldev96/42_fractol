@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/04 03:01:21 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/04 04:12:11 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <mlx.h>
 # include <math.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1366
+# define HEIGHT 768
 # define MAX_ITER 1000
 
 typedef struct s_vars
