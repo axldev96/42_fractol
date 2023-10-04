@@ -6,31 +6,19 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/03 21:17:28 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/04 02:34:20 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <math.h>
+#include "../fractol.h"
 
-#define WIDTH 800
-#define HEIGHT 800
-#define MAX_ITER 1000
-
-typedef struct s_data
+void	ft_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		line_length;
-	int		endian;
-}			t_data;
+	char	*dst;
 
-typedef struct s_cmp_nbs
-{
-	double	real;
-	double	imag;
-}			t_cmpx_nbs;
+	dst = data->addr + (y * data->line_length + x * (data->bpp / 8));
+	*(unsigned int *)dst = color;
+}
 
 int	mandelbrot(t_cmpx_nbs c)
 {
@@ -54,7 +42,7 @@ int	mandelbrot(t_cmpx_nbs c)
 	return (MAX_ITER);
 }
 
-void	draw_mandelbrot(void *mlx, void *window, int color)
+void	draw_mandelbrot(t_data *data, int color)
 {
 	int				x;
 	int				y;
@@ -76,29 +64,28 @@ void	draw_mandelbrot(void *mlx, void *window, int color)
 			c.real = real;
 			c.imag = imag;
 			color = mandelbrot(c);
-			mlx_pixel_put(mlx, window, x, y, color);
+			ft_mlx_pixel_put(data, x, y, color);
 			y++;
 		}
 		x++;
 	}
 }
 
-void	ft_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-}
-
 int	main(void)
 {
 	int		color;
-	void	*mlx;
-	void	*window;
+	t_vars	vars;
 	t_data	data;
 
-	mlx = mlx_init();
-	window = mlx_new_window(mlx, WIDTH, HEIGHT, "Mandelbrot Set");
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, WIDTH, HEIGHT, "Mandelbrot Fractal");
+	data.img = mlx_new_image(vars.mlx, WIDTH, HEIGHT);
+	data.addr = mlx_get_data_addr(data.img, &data.bpp, &data.line_length,
+			&data.endian);
 	color = 0;
-	draw_mandelbrot(mlx, window, color);
-	mlx_loop(mlx);
+	draw_mandelbrot(&data, color);
+	mlx_put_image_to_window(vars.mlx, vars.win, data.img, 0, 0);
+	mlx_hook(vars.win, 2, 1L<<0, hook_close, &vars);
+	mlx_loop(vars.mlx);
 	return (0);
 }

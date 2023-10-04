@@ -3,34 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acaceres <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/26 11:01:16 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/02 01:48:45 by acaceres         ###   ########.fr        #
+#    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
+#    Updated: 2023/10/04 02:34:50 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
-SRC = main.c
+SRC_DIR = src
+SRC = $(SRC_DIR)/main.c \
+	$(SRC_DIR)/hooks/hook_close.c
+
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
-RM = rm -rf
+CFLAGS = -Wall -Wextra -Werror
+
+$(RM) = rm
 
 %.o: %.c
-	$(CC) -Imlx -c $< -o $@
+	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 all: $(NAME)
 
 re: fclean all
 
 clean:
-	$(RM) main.o
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
-
-.PHONY: clean fclean all
