@@ -6,14 +6,16 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/04 02:34:50 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/04 03:02:42 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 SRC_DIR = src
 SRC = $(SRC_DIR)/main.c \
-	$(SRC_DIR)/hooks/hook_close.c
+	$(SRC_DIR)/hooks/hook_close.c \
+	$(SRC_DIR)/mlx_utils/ft_mlx_pixel_put.c \
+	$(SRC_DIR)/fractals/mandelbrot.c
 
 OBJ = $(SRC:.c=.o)
 

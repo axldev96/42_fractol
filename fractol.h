@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/04 02:31:49 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/04 03:01:21 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,11 @@ typedef struct s_cmp_nbs
 
 // hooks
 int	hook_close(int keycode, t_vars *vars);
+
+// utils
+void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
+
+// fractals
+void	draw_mandelbrot(t_data *data, int color);
 
 #endif
