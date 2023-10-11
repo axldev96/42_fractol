@@ -6,59 +6,62 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 03:00:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 16:14:28 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:03:27 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../fractol.h"
 
-void	mandelbrot(int x, int y, t_data *data, t_vars *vars)
+void	set_complex_numbers(t_complex *z, t_complex *c, t_scales *scales)
+{
+	z->real = 0.0;
+	z->imag = 0.0;
+	c->real = interpolate(&scales->scale_real);
+	c->imag = interpolate(&scales->scale_imag);
+}
+
+int	mandelbrot(int x, int y, t_data *data, t_vars *vars)
 {
 	t_complex	z;
 	t_complex	c;
 	t_scales	scales;
-	int		i;
-	int		color;
+	int			color;
+	int			i;
 
 	i = 0;
 	init_scale_real(&scales.scale_real, x);
 	init_scale_imag(&scales.scale_imag, y);
-	z.real = 0.0;
-	z.imag = 0.0;
-	c.real = interpolate(&scales.scale_real);
-	c.imag = interpolate(&scales.scale_imag);
-	color = 0x00000000;
-	// How many times iterate: z^2 + c
-	// to check if the point scaped
-	// if hypotenuse > 2 -- is scaped
-	// hypotenuse = a^2 + b^2 = c ^2;
+	set_complex_numbers(&z, &c, &scales);
 	while (i < MAX_ITER)
 	{
 		z = sum_complex(square_complex(z), c);
-		// The value's scaped
 		if ((z.real * z.real) + (z.imag * z.imag) > HYPOTENUSE)
 		{
 			init_scale_color(&scales.scale_color, i);
 			color = interpolate(&scales.scale_color);
-			ft_mlx_pixel_put(data, x, y, color);
-			return ;
+			return (i + color);
 		}
 		++i;
 	}
-	ft_mlx_pixel_put(data, x, y, FUCSIA);
+	return (BLACK);
 }
 
 void	draw_mandelbrot(t_data *data, t_vars *vars)
 {
 	int	x;
 	int	y;
+	int	color;
 
-	y = -1;
-	while (++y < HEIGHT)
+	x = -1;
+	while (++x < WIDTH)
 	{
-		x = -1;
-		while (++x < WIDTH)
-			mandelbrot(x, y, data, vars);
+		y = -1;
+		while (++y < HEIGHT)
+		{
+			color = mandelbrot(x, y, data, vars);
+			ft_mlx_pixel_put(data, x, y, color++);
+		}
+		ft_mlx_pixel_put(data, x, y, WHITE);
 	}
 	mlx_put_image_to_window(vars->mlx, vars->win, data->img, 0, 0);
 }
