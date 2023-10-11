@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:14:01 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 16:59:49 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:15:19 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	init_scale_imag(t_scale *scale_imag, int y)
 void	init_scale_color(t_scale *scale_color, int i)
 {
 	scale_color->value_to_scale = i;
-	scale_color->target_min = 0x00000000;
-	scale_color->target_max = 0x00111111;
+	scale_color->target_min = BLACK;
+	scale_color->target_max = WHITE;
 	scale_color->original_min = 0;
 	scale_color->original_max = MAX_ITER;
 }
