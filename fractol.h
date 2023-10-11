@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/04 04:12:11 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 07:45:55 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@
 # define WIDTH 1366
 # define HEIGHT 768
 # define MAX_ITER 1000
+
+# define ESCAPE 65307
+
+typedef struct s_scale
+{
+	double	value_to_scale;
+	double 	target_min;
+	double 	target_max;
+	double 	original_min;
+	double 	original_max;
+}			t_scale;
 
 typedef struct s_vars
 {
@@ -47,10 +58,13 @@ typedef struct s_cmp_nbs
 // hooks
 int	hook_close(int keycode, t_vars *vars);
 
-// utils
+// mlx_utils
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 
+// utils
+double	interpolate(t_scale *scale);
+
 // fractals
-void	draw_mandelbrot(t_data *data, int color);
+void	draw_mandelbrot(t_data *data);
 
 #endif
