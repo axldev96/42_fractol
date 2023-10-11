@@ -6,38 +6,11 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 03:00:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 16:01:53 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:14:28 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../fractol.h"
-
-void	init_scale_real(t_scale *scale_real, int x)
-{
-	scale_real->value_to_scale = x;
-	scale_real->target_min = -2;
-	scale_real->target_max = 2;
-	scale_real->original_min = 0;
-	scale_real->original_max = WIDTH;
-}
-
-void	init_scale_imag(t_scale *scale_imag, int y)
-{
-	scale_imag->value_to_scale = y;
-	scale_imag->target_min = 2;
-	scale_imag->target_max = -2;
-	scale_imag->original_min = 0;
-	scale_imag->original_max = HEIGHT;
-}
-
-void	init_color(t_scale *scale_color, int i)
-{
-	scale_color->value_to_scale = i;
-	scale_color->target_min = BLACK;
-	scale_color->target_max = WHITE;
-	scale_color->original_min = 0;
-	scale_color->original_max = MAX_ITER;
-}
 
 void	mandelbrot(int x, int y, t_data *data, t_vars *vars)
 {
@@ -65,7 +38,7 @@ void	mandelbrot(int x, int y, t_data *data, t_vars *vars)
 		// The value's scaped
 		if ((z.real * z.real) + (z.imag * z.imag) > HYPOTENUSE)
 		{
-			init_color(&scales.scale_color, i);
+			init_scale_color(&scales.scale_color, i);
 			color = interpolate(&scales.scale_color);
 			ft_mlx_pixel_put(data, x, y, color);
 			return ;

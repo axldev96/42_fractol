@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 16:01:36 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:14:55 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 double		interpolate(t_scale *scale);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z_1);
+void	init_scale_real(t_scale *scale_real, int x);
+void	init_scale_imag(t_scale *scale_imag, int y);
+void	init_scale_color(t_scale *scale_color, int i);
 
 // fractals
 void	draw_mandelbrot(t_data *data, t_vars *vars);
