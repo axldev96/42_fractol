@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 03:00:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 14:59:25 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:01:53 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,30 @@ void	init_scale_imag(t_scale *scale_imag, int y)
 	scale_imag->original_max = HEIGHT;
 }
 
+void	init_color(t_scale *scale_color, int i)
+{
+	scale_color->value_to_scale = i;
+	scale_color->target_min = BLACK;
+	scale_color->target_max = WHITE;
+	scale_color->original_min = 0;
+	scale_color->original_max = MAX_ITER;
+}
+
 void	mandelbrot(int x, int y, t_data *data, t_vars *vars)
 {
-	double		hypotenuse; // scaped value
 	t_complex	z;
 	t_complex	c;
-	t_scale		scale_real;
-	t_scale		scale_imag;
-	t_scale		scale_color;
+	t_scales	scales;
 	int		i;
 	int		color;
 
 	i = 0;
-	hypotenuse = 4;
-	init_scale_real(&scale_real, x);
-	init_scale_imag(&scale_imag, y);
+	init_scale_real(&scales.scale_real, x);
+	init_scale_imag(&scales.scale_imag, y);
 	z.real = 0.0;
 	z.imag = 0.0;
-	c.real = interpolate(&scale_real);
-	c.imag = interpolate(&scale_imag);
+	c.real = interpolate(&scales.scale_real);
+	c.imag = interpolate(&scales.scale_imag);
 	color = 0x00000000;
 	// How many times iterate: z^2 + c
 	// to check if the point scaped
@@ -58,15 +63,10 @@ void	mandelbrot(int x, int y, t_data *data, t_vars *vars)
 	{
 		z = sum_complex(square_complex(z), c);
 		// The value's scaped
-		if ((z.real * z.real) + (z.imag * z.imag) > hypotenuse)
+		if ((z.real * z.real) + (z.imag * z.imag) > HYPOTENUSE)
 		{
-
-			scale_color.value_to_scale = i;
-			scale_color.target_min = BLACK;
-			scale_color.target_max = WHITE;
-			scale_color.original_min = 0;
-			scale_color.original_max = MAX_ITER;
-			color = interpolate(&scale_color);
+			init_color(&scales.scale_color, i);
+			color = interpolate(&scales.scale_color);
 			ft_mlx_pixel_put(data, x, y, color);
 			return ;
 		}

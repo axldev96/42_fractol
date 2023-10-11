@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 15:00:06 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:01:36 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 
 # define ESCAPE_MAC 53
 # define ESCAPE_LINUX 65307
+
+# define HYPOTENUSE 4.0
 
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
@@ -59,6 +61,13 @@ typedef struct s_complex
 	double	real;
 	double	imag;
 }			t_complex;
+
+typedef struct s_scales
+{
+	t_scale	scale_real;
+	t_scale	scale_imag;
+	t_scale	scale_color;
+}	t_scales;
 
 // hooks
 int	hook_close(int keycode, t_vars *vars);
