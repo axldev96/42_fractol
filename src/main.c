@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 07:38:32 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:03:02 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main(void)
 	data.img = mlx_new_image(vars.mlx, WIDTH, HEIGHT);
 	data.addr = mlx_get_data_addr(data.img, &data.bpp, &data.line_length,
 			&data.endian);
-	draw_mandelbrot(&data);
-	mlx_put_image_to_window(vars.mlx, vars.win, data.img, 0, 0);
+	draw_mandelbrot(&data, &vars);
+	//mlx_put_image_to_window(vars.mlx, vars.win, data.img, 0, 0);
 	mlx_key_hook(vars.win, hook_close, &vars);
 	mlx_loop(vars.mlx);
 	return (0);

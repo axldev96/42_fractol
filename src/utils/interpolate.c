@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 07:54:34 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 08:03:11 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 14:53:04 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ double	interpolate(t_scale *scale)
 	target_range = scale->target_max - scale->target_min;
 	dst = scale->value_to_scale - scale->original_min;
 	original_range = scale->original_max - scale->original_min;
-	return (target_range * dst / original_range + target_min);
+	return (target_range * dst / original_range + scale->target_min);
 }

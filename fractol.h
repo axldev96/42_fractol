@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 10:18:04 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:00:06 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@
 # include <mlx.h>
 # include <math.h>
 
-# define WIDTH 1366
-# define HEIGHT 768
-# define MAX_ITER 1000
+# define WIDTH 600
+# define HEIGHT 600
+# define MAX_ITER 100
 
 # define ESCAPE_MAC 53
 # define ESCAPE_LINUX 65307
+
+# define BLACK 0x00000000
+# define WHITE 0x00FFFFFF
+# define FUCSIA 0x00EF0F88
 
 typedef struct s_scale
 {
@@ -68,6 +72,6 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z_1);
 
 // fractals
-void	draw_mandelbrot(t_data *data);
+void	draw_mandelbrot(t_data *data, t_vars *vars);
 
 #endif
