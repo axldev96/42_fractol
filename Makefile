@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/04 11:23:02 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/11 09:12:48 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,18 +26,18 @@ CFLAGS = -Wall -Wextra -Werror
 $(RM) = rm
 
 # linux compilation:
-#%.o: %.c
-#	$(CC) -fsanitize=address -g3 -I/usr/include -Imlx_linux -O3 -c $< -o $@
-#
-#$(NAME): $(OBJ)
-#	$(CC) $(OBJ) -fsanitize=address -g3 -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-
-# macos commpilation:
 %.o: %.c
-	$(CC) -Imlx -c $< -o $@
+	$(CC) -fsanitize=address -g3 -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJ) -fsanitize=address -g3 -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+
+# macos commpilation:
+#%.o: %.c
+#	$(CC) -Imlx -c $< -o $@
+#
+#$(NAME): $(OBJ)
+#	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 all: $(NAME)
 

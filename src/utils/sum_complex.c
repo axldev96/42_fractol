@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_close.c                                       :+:      :+:    :+:   */
+/*   sum_complex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 02:32:17 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 09:24:37 by acaceres         ###   ########.fr       */
+/*   Created: 2023/10/11 09:50:24 by acaceres          #+#    #+#             */
+/*   Updated: 2023/10/11 10:18:11 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../fractol.h"
 
-int	hook_close(int keycode, t_vars *vars)
+t_complex	sum_complex(t_complex z_1, t_complex z_2)
 {
-	if (keycode == ESCAPE_MAC || keycode == ESCAPE_LINUX)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		exit(1);
-	}
+	t_complex	z_3;
+
+	z_3.real = z_1.real + z_2.real;
+	z_3.imag = z_1.imag + z_2.imag;
+	return (z_3);
 }

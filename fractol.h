@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 07:45:55 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 10:18:04 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 # define HEIGHT 768
 # define MAX_ITER 1000
 
-# define ESCAPE 65307
+# define ESCAPE_MAC 53
+# define ESCAPE_LINUX 65307
 
 typedef struct s_scale
 {
@@ -49,11 +50,11 @@ typedef struct s_data
 	int		endian;
 }			t_data;
 
-typedef struct s_cmp_nbs
+typedef struct s_complex
 {
 	double	real;
 	double	imag;
-}			t_cmpx_nbs;
+}			t_complex;
 
 // hooks
 int	hook_close(int keycode, t_vars *vars);
@@ -62,7 +63,9 @@ int	hook_close(int keycode, t_vars *vars);
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 // utils
-double	interpolate(t_scale *scale);
+double		interpolate(t_scale *scale);
+t_complex	sum_complex(t_complex z1, t_complex z2);
+t_complex	square_complex(t_complex z_1);
 
 // fractals
 void	draw_mandelbrot(t_data *data);
