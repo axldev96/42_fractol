@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 19:00:03 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/12 13:18:13 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define WIDTH 1024
 # define HEIGHT 768
-# define MAX_ITER 42
+# define MAX_ITER 10
 
 # define ESCAPE_MAC 53
 # define ESCAPE_LINUX 65307
@@ -68,6 +68,17 @@ typedef struct s_scales
 	t_scale	scale_color;
 }	t_scales;
 
+typedef struct s_fractol
+{
+	t_vars		vars;
+	t_data		data;
+	t_complex	complex;
+	t_scale		scale;
+	t_scales	scales;
+	int			max_iter;
+}				t_fractol;
+
+
 // hooks
 int	hook_close(int keycode, t_vars *vars);
 
@@ -83,6 +94,6 @@ void		init_scale_imag(t_scale *scale_imag, int y);
 void		init_scale_color(t_scale *scale_color, int i);
 
 // fractals
-void	draw_mandelbrot(t_data *data, t_vars *vars);
+void	draw_mandelbrot(t_fractol *fractol);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 16:59:15 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/12 13:17:50 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 int	main(void)
 {
-	t_vars	vars;
-	t_data	data;
+	t_fractol	fractol;
 
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, WIDTH, HEIGHT, "Mandelbrot Fractal");
-	data.img = mlx_new_image(vars.mlx, WIDTH, HEIGHT);
-	data.addr = mlx_get_data_addr(data.img, &data.bpp, &data.line_length,
-			&data.endian);
-	draw_mandelbrot(&data, &vars);
-	mlx_key_hook(vars.win, hook_close, &vars);
-	mlx_loop(vars.mlx);
+	fractol.max_iter = MAX_ITER;
+	fractol.vars.mlx = mlx_init();
+	fractol.vars.win = mlx_new_window(fractol.vars.mlx, WIDTH,
+			HEIGHT, "Mandelbrot Fractal");
+	fractol.data.img = mlx_new_image(fractol.vars.mlx, WIDTH, HEIGHT);
+	fractol.data.addr = mlx_get_data_addr(fractol.data.img,
+			&fractol.data.bpp, &fractol.data.line_length,
+			&fractol.data.endian);
+	draw_mandelbrot(&fractol);
+	mlx_key_hook(fractol.vars.win, hook_close, &fractol.vars);
+	mlx_loop(fractol.vars.mlx);
 	return (0);
 }
