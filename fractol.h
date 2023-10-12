@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 17:26:56 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:00:03 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define WIDTH 1024
 # define HEIGHT 768
-# define MAX_ITER 100
+# define MAX_ITER 42
 
 # define ESCAPE_MAC 53
 # define ESCAPE_LINUX 65307

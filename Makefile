@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/11 16:24:58 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/11 18:37:07 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ $(NAME): $(OBJ)
 all: $(NAME)
 
 re: fclean
-	$(MAIN_TARGET)
+	$(MAKE) $(MAIN_TARGET)
 
 clean:
 	$(RM) $(OBJ)
