@@ -1,4 +1,4 @@
 mlx
 mlx_linux
 tags
-src/**/*.o
+*.o

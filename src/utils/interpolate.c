@@ -6,11 +6,11 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 07:54:34 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 14:53:04 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:00:45 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../fractol.h"
+#include "fractol.h"
 
 double	interpolate(t_scale *scale)
 {

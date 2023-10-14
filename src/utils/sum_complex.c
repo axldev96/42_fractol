@@ -6,11 +6,11 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:50:24 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 10:18:11 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:01:10 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../fractol.h"
+#include "fractol.h"
 
 t_complex	sum_complex(t_complex z_1, t_complex z_2)
 {

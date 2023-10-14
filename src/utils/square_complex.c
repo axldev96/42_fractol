@@ -6,11 +6,11 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:55:15 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/11 10:17:30 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:01:02 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../fractol.h"
+#include "fractol.h"
 
 // General formula:
 // (x_real + y_imaginary)^2
