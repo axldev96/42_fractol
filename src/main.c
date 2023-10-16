@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 11:44:29 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 19:03:27 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	main(void)
 	fractol.zoom = 1.0;
 	fractol.pos_x = 0.0;
 	fractol.pos_y = 0.0;
-	hook_handler_mac(&fractol);
+	//hook_handler_mac(&fractol);
+	hook_handler_linux(&fractol);
 	draw_mandelbrot(&fractol);
 	mlx_loop(fractol.vars.mlx);
 	return (0);

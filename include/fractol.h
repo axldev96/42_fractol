@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 16:12:25 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 19:08:08 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
-//# include <X11/X.h>
+# include <X11/X.h>
 
 # define WIDTH 800
 # define HEIGHT 800
-# define MAX_ITER 30
+# define MAX_ITER 12
 
 # define HYPOTENUSE 4.0
 
@@ -69,6 +69,8 @@
 # define KEY_J_LINUX 106
 # define KEY_L_LINUX 108
 # define KEY_H_LINUX 104
+
+# define KEY_R_LINUX 114
 
 // LINUX MOUSE
 # define MOUSE_UP_LINUX 4
@@ -123,6 +125,7 @@ typedef struct s_fractol
 
 // hooks
 void	hook_handler_mac(t_fractol *fractol);
+void	hook_handler_linux(t_fractol *fractol);
 
 // mlx_utils
 void		ft_mlx_pixel_put(t_data *data, int x, int y, int color);
