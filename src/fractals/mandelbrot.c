@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 03:00:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 16:15:30 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 19:46:20 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	mandelbrot(int x, int y, t_fractol *fractol)
 		if ((z.real * z.real) + (z.imag * z.imag) > HYPOTENUSE)
 		{
 			init_scale_color(&scales.scale_color, i);
-			color = interpolate(&scales.scale_color) + i;
+			color = interpolate(&scales.scale_color);
 			return (color);
 		}
 		++i;

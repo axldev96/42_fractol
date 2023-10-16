@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 19:08:08 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 19:38:17 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # define WIDTH 800
 # define HEIGHT 800
-# define MAX_ITER 12
+# define MAX_ITER 42
 
 # define HYPOTENUSE 4.0
 
