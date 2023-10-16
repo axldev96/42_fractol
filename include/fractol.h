@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 19:38:17 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 19:54:11 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void		init_scale_real(t_scale *scale_real, int x);
 void		init_scale_imag(t_scale *scale_imag, int y);
 void		init_scale_color(t_scale *scale_color, int i);
 double		interpolate(t_scale *scale);
-double		ft_atodob(const char *str);
+double		ft_strtod(const char *str);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z_1);
 

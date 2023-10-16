@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 19:03:27 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 20:22:57 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	main(void)
 {
-	//printf("atodb: %f\n", ft_atodob("15.4"));
-	//return (0);
+	double	n = 1.2;
+
+	printf("strtod: %f\n", n);
+	return (0);
 	t_fractol	fractol;
 
 	fractol.vars.mlx = mlx_init();
