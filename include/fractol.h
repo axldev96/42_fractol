@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/14 20:04:40 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/14 22:41:55 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,31 @@
 
 # define WIDTH 1024
 # define HEIGHT 768
-# define MAX_ITER 42
-
-# define ESCAPE_MAC 53
-# define ESCAPE_LINUX 65307
+# define MAX_ITER 30
 
 # define HYPOTENUSE 4.0
 
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
+
+// LINUX KEYS
+# define ESCAPE_LINUX 65307
+# define ARROW_UP_LINUX 65362
+# define ARROW_DOWN_LINUX 65364
+# define ARROW_RIGHT_LINUX 65363
+# define ARROW_LEFT_LINUX 65361
+
+# define PLUS_LINUX 61
+# define MINUS_LINUX 45
+
+# define KEY_K_LINUX 107
+# define KEY_J_LINUX 106
+# define KEY_L_LINUX 108
+# define KEY_H_LINUX 104
+
+// LINUX MOUSE
+# define MOUSE_UP 4
+# define MOUSE_DOWN 5
 
 typedef struct s_scale
 {
@@ -73,6 +89,9 @@ typedef struct s_fractol
 {
 	t_vars		vars;
 	t_data		data;
+	double		pos_x;
+	double		pos_y;
+	double		zoom;
 	int			max_iter;
 }				t_fractol;
 
@@ -87,6 +106,7 @@ void		init_scale_real(t_scale *scale_real, int x);
 void		init_scale_imag(t_scale *scale_imag, int y);
 void		init_scale_color(t_scale *scale_color, int i);
 double		interpolate(t_scale *scale);
+double		ft_atodob(const char *str);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z_1);
 

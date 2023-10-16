@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/14 20:00:22 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/14 23:21:26 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	main(void)
 {
+	printf("atodb: %f\n", ft_atodob("15.4"));
+	return (0);
 	t_fractol	fractol;
 
 	fractol.vars.mlx = mlx_init();
@@ -22,10 +24,13 @@ int	main(void)
 	fractol.vars.win = mlx_new_window(fractol.vars.mlx, WIDTH,
 			HEIGHT, "Mandelbrot Fractal");
 	fractol.data.img = mlx_new_image(fractol.vars.mlx, WIDTH, HEIGHT);
-	fractol.max_iter = MAX_ITER;
 	fractol.data.addr = mlx_get_data_addr(fractol.data.img,
 			&fractol.data.bpp, &fractol.data.line_length,
 			&fractol.data.endian);
+	fractol.max_iter = MAX_ITER;
+	fractol.zoom = 1.0;
+	fractol.pos_x = 0.0;
+	fractol.pos_y = 0.0;
 	hook_handler(&fractol);
 	draw_mandelbrot(&fractol);
 	mlx_loop(fractol.vars.mlx);

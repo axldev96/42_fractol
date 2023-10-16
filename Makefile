@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/14 20:00:10 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/14 22:44:34 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/utils/interpolate.c \
 	$(SRC_DIR)/utils/sum_complex.c \
 	$(SRC_DIR)/utils/square_complex.c \
-	$(SRC_DIR)/utils/scales.c
+	$(SRC_DIR)/utils/scales.c \
+	$(SRC_DIR)/utils/ft_atodob.c
 
 OBJ = $(SRC:.c=.o)
 MAIN_TARGET = all
