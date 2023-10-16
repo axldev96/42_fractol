@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/14 22:41:55 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:16:00 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
-# include <X11/X.h>
+//# include <X11/X.h>
 
-# define WIDTH 1024
-# define HEIGHT 768
+# define WIDTH 800
+# define HEIGHT 800
 # define MAX_ITER 30
 
 # define HYPOTENUSE 4.0
@@ -29,8 +29,29 @@
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
 
+// MAC KEYS
+# define ESCAPE_MAC 53
+
+# define ARROW_UP_MAC 126
+# define ARROW_DOWN_MAC 125
+# define ARROW_RIGHT_MAC 124
+# define ARROW_LEFT_MAC 123
+
+# define PLUS_MAC 24
+# define MINUS_MAC 27
+
+# define KEY_K_MAC 40
+# define KEY_J_MAC 38
+# define KEY_L_MAC 37
+# define KEY_H_MAC 4
+
+// MAC MOUSE
+# define MOUSE_UP_MAC 5
+# define MOUSE_DOWN_MAC 4
+
 // LINUX KEYS
 # define ESCAPE_LINUX 65307
+
 # define ARROW_UP_LINUX 65362
 # define ARROW_DOWN_LINUX 65364
 # define ARROW_RIGHT_LINUX 65363
@@ -45,8 +66,8 @@
 # define KEY_H_LINUX 104
 
 // LINUX MOUSE
-# define MOUSE_UP 4
-# define MOUSE_DOWN 5
+# define MOUSE_UP_LINUX 4
+# define MOUSE_DOWN_LINUX 5
 
 typedef struct s_scale
 {
@@ -96,7 +117,7 @@ typedef struct s_fractol
 }				t_fractol;
 
 // hooks
-void		hook_handler(t_fractol *fractol);
+void	hook_handler_mac(t_fractol *fractol);
 
 // mlx_utils
 void		ft_mlx_pixel_put(t_data *data, int x, int y, int color);
