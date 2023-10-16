@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 12:16:00 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:12:25 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@
 
 # define HYPOTENUSE 4.0
 
+// Colors
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
+# define BEIGE 0x00F5F5DC
+# define BISQUE 0x00FFE4C4
 
 // MAC KEYS
 # define ESCAPE_MAC 53
@@ -44,6 +47,8 @@
 # define KEY_J_MAC 38
 # define KEY_L_MAC 37
 # define KEY_H_MAC 4
+
+# define KEY_R_MAC 15
 
 // MAC MOUSE
 # define MOUSE_UP_MAC 5

@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 03:00:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 11:43:43 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:15:30 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	mandelbrot(int x, int y, t_fractol *fractol)
 	int			i;
 
 	i = 0;
+	color = 0;
 	init_scale_real(&scales.scale_real, x);
 	init_scale_imag(&scales.scale_imag, y);
 	set_complex_numbers(&z, &c, &scales, fractol);
@@ -39,7 +40,7 @@ int	mandelbrot(int x, int y, t_fractol *fractol)
 		if ((z.real * z.real) + (z.imag * z.imag) > HYPOTENUSE)
 		{
 			init_scale_color(&scales.scale_color, i);
-			color = interpolate(&scales.scale_color);
+			color = interpolate(&scales.scale_color) + i;
 			return (color);
 		}
 		++i;
@@ -64,7 +65,6 @@ void	draw_mandelbrot(t_fractol *fractol)
 			color = mandelbrot(x, y, fractol);
 			ft_mlx_pixel_put(&fractol->data, x, y, color);
 		}
-		ft_mlx_pixel_put(&fractol->data, x, y, WHITE);
 	}
 	mlx_put_image_to_window(fractol->vars.mlx, fractol->vars.win,
 		fractol->data.img, 0, 0);

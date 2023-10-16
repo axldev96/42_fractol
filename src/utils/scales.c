@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:14:01 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/14 21:58:10 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:15:40 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	init_scale_real(t_scale *scale_real, int x)
 {
 	scale_real->value_to_scale = x;
-	scale_real->target_min = -2;
-	scale_real->target_max = 2;
+	scale_real->target_min = -4;
+	scale_real->target_max = 4;
 	scale_real->original_min = 0;
 	scale_real->original_max = WIDTH;
 }
@@ -24,8 +24,8 @@ void	init_scale_real(t_scale *scale_real, int x)
 void	init_scale_imag(t_scale *scale_imag, int y)
 {
 	scale_imag->value_to_scale = y;
-	scale_imag->target_min = 2;
-	scale_imag->target_max = -2;
+	scale_imag->target_min = 4;
+	scale_imag->target_max = -4;
 	scale_imag->original_min = 0;
 	scale_imag->original_max = HEIGHT;
 }
