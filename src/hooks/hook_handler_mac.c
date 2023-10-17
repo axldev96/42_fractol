@@ -17,7 +17,6 @@ void	close_hook(t_fractol *fractol)
 	mlx_destroy_image(fractol->vars.mlx, fractol->data.img);
 	mlx_destroy_window(fractol->vars.mlx, fractol->vars.win);
 	free(fractol->vars.mlx);
-	system("leaks fractol");
 	exit(EXIT_SUCCESS);
 }
 
@@ -53,12 +52,21 @@ void	reset_hook(int keycode, t_fractol *fractol)
 	}
 }
 
+void	zoom_hook(int keycode, t_fractol *fractol)
+{
+	if (keycode == KEY_W_MAC)
+		fractol->zoom *= 0.96;
+	else if (keycode == KEY_S_MAC)
+		fractol->zoom /= 0.96;
+}
+
 int	hook_key_handler(int keycode, t_fractol *fractol)
 {
 	if (keycode == ESCAPE_MAC)
 		close_hook(fractol);
 	move_hook(keycode, fractol);
 	iters_hook(keycode, fractol);
+	zoom_hook(keycode, fractol);
 	reset_hook(keycode, fractol);
 	draw_mandelbrot(fractol);
 	return (0);

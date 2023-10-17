@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 19:54:11 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 20:48:32 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
-# include <X11/X.h>
+//# include <X11/X.h>
 
 # define WIDTH 800
 # define HEIGHT 800
@@ -49,6 +49,9 @@
 # define KEY_H_MAC 4
 
 # define KEY_R_MAC 15
+
+# define KEY_W_MAC 13
+# define KEY_S_MAC 1
 
 // MAC MOUSE
 # define MOUSE_UP_MAC 5

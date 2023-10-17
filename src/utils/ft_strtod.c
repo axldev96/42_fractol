@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 19:53:41 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 20:20:06 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/17 00:17:28 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,48 @@ static int	s_chars(char c)
 		|| c == '\v');
 }
 
+static double	get_dec(const char *str, int *sign, int *i, double dec)
+{
+	while (str[*i] && s_chars(str[*i]))
+		(*i)++;
+	if (str[*i] && (str[*i] == '-' || str[*i] == '+'))
+	{
+		if (str[*i] == '-')
+			*sign = -1;
+		(*i)++;
+	}
+	while (str[*i] && ft_isdigit(str[*i]))
+	{
+		if (!ft_isdigit(str[*i]))
+			return (0);
+		dec = dec * 10 + str[*i] - '0';
+		(*i)++;
+	}
+	return (dec);
+}
+
 double	ft_strtod(const char *str)
 {
-	double	result;
+	double	dec;
+	double	frac;
+	double	mult;
 	int		sign;
+	int		i;
 
-	result = 0.0;
+	i = 0;
 	sign = 1;
-	while (s_chars(*str))
-		str++;
-	if (*str == '-' || *str == '+')
+	dec = get_dec(str, &sign, &i, 0);
+	mult = 0.1;
+	frac = 0.0;
+	if (str[i] && (str[i] == ',' || str[i] == '.'))
+		i++;
+	while (str[i] && ft_isdigit(str[i]))
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (!ft_isdigit(str[i]))
+			return (0);
+		frac += (str[i] - '0') * mult;
+		mult*= 0.1;
+		i++;
 	}
-	while (ft_isdigit(*str))
-	{
-		str++;
-	}
-	return (result * sign);
+	return (sign * (dec + frac));
 }

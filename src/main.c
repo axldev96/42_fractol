@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 20:22:57 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/16 23:10:40 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 int	main(void)
 {
-	double	n = 1.2;
-
-	printf("strtod: %f\n", n);
-	return (0);
 	t_fractol	fractol;
 
 	fractol.vars.mlx = mlx_init();
@@ -33,8 +29,7 @@ int	main(void)
 	fractol.zoom = 1.0;
 	fractol.pos_x = 0.0;
 	fractol.pos_y = 0.0;
-	//hook_handler_mac(&fractol);
-	hook_handler_linux(&fractol);
+	hook_handler_mac(&fractol);
 	draw_mandelbrot(&fractol);
 	mlx_loop(fractol.vars.mlx);
 	return (0);
