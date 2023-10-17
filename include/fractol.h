@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 20:48:32 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:32:55 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
-//# include <X11/X.h>
+# include <X11/X.h>
 
 # define WIDTH 800
 # define HEIGHT 800
@@ -74,6 +74,9 @@
 # define KEY_H_LINUX 104
 
 # define KEY_R_LINUX 114
+
+# define KEY_W_LINUX 119
+# define KEY_S_LINUX 115
 
 // LINUX MOUSE
 # define MOUSE_UP_LINUX 4
