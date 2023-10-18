@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:45:21 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 16:14:44 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/17 23:21:25 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	hook_key_handler(int keycode, t_fractol *fractol)
 	iters_hook(keycode, fractol);
 	zoom_hook(keycode, fractol);
 	reset_hook(keycode, fractol);
-	draw_mandelbrot(fractol);
+	draw_fractal(fractol);
 	return (0);
 }
 
@@ -79,7 +79,7 @@ int	hook_mouse_handler(int button, int x, int y, t_fractol *fractol)
 	else if (button == MOUSE_DOWN_MAC)
 		fractol->zoom /= 0.96;
 	if (x || y)
-		draw_mandelbrot(fractol);
+		draw_fractal(fractol);
 	return (0);
 }
 

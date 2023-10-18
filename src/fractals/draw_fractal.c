@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   draw_fractal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 03:00:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/16 19:46:20 by acaceres         ###   ########.fr       */
+/*   Created: 2023/10/17 23:23:10 by acaceres          #+#    #+#             */
+/*   Updated: 2023/10/18 00:02:06 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	set_complex_numbers(t_complex *z, t_complex *c,
-		t_scales *scales, t_fractol *fractol)
-{
-	z->real = 0.0;
-	z->imag = 0.0;
-	c->real = (interpolate(&scales->scale_real) * fractol->zoom) + fractol->pos_x;
-	c->imag = (interpolate(&scales->scale_imag) * fractol->zoom) + fractol->pos_y;
-}
-
-int	mandelbrot(int x, int y, t_fractol *fractol)
+int	calculate_fractal(int x, int y, t_fractol *fractol)
 {
 	t_complex	z;
 	t_complex	c;
@@ -33,7 +24,7 @@ int	mandelbrot(int x, int y, t_fractol *fractol)
 	color = 0;
 	init_scale_real(&scales.scale_real, x);
 	init_scale_imag(&scales.scale_imag, y);
-	set_complex_numbers(&z, &c, &scales, fractol);
+	select_complex_numbers(&z, &c, &scales, fractol);
 	while (i < fractol->max_iter)
 	{
 		z = sum_complex(square_complex(z), c);
@@ -48,7 +39,7 @@ int	mandelbrot(int x, int y, t_fractol *fractol)
 	return (BLACK);
 }
 
-void	draw_mandelbrot(t_fractol *fractol)
+void	draw_fractal(t_fractol *fractol)
 {
 	int	x;
 	int	y;
@@ -62,7 +53,7 @@ void	draw_mandelbrot(t_fractol *fractol)
 		y = -1;
 		while (++y < (HEIGHT - 1))
 		{
-			color = mandelbrot(x, y, fractol);
+			color = calculate_fractal(x, y, fractol);
 			ft_mlx_pixel_put(&fractol->data, x, y, color);
 		}
 	}
