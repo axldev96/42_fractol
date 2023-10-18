@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/17 23:58:46 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/18 17:29:58 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,25 +28,35 @@ SRC = $(SRC_DIR)/main.c \
 OBJ = $(SRC:.c=.o)
 MAIN_TARGET = all
 
+UNAME := $(shell uname)
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 INCL = -Iinclude
+MLX_MAC_INCLUDE = -Imlx
+MLX_MAC_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+MLX_LINUX_INCLUDE = -I/usr/include -Imlx_linux -O3
+MLX_LINUX_FLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 $(RM) = rm
 
 # linux compilation:
+ifeq ($(UNAME), Linux)
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCL) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	$(CC) $(CFLAGS) $(INCL) $(MLX_LINUX_INCLUDE) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(INCL) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(CFLAGS) $(INCL) $(OBJ) $(MLX_LINUX_FLAGS) -o $(NAME)
+endif
 
 # macos commpilation:
-#%.o: %.c
-#	$(CC) $(CFLAGS) $(INCL) -Imlx -c $< -o $@
-#
-#$(NAME): $(OBJ)
-#	$(CC) $(CFLAGS) $(INCL) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+ifeq ($(UNAME), Darwin)
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCL) $(MLX_MAC_INCLUDE) -c $< -o $@
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(INCL) $(OBJ) $(MLX_MAC_FLAGS) -o $(NAME)
+endif
 
 all: $(NAME)
 
