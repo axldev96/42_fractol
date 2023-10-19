@@ -6,11 +6,19 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/17 23:47:43 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/19 23:42:11 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	init_fratol(t_fractol *fractol)
+{
+	fractol->max_iter = MAX_ITER;
+	fractol->zoom = 1.0;
+	fractol->pos_x = 0.0;
+	fractol->pos_y = 0.0;
+}
 
 int	main(int ac, char **av)
 {
@@ -33,11 +41,8 @@ int	main(int ac, char **av)
 	}
 	else
 		fractol.fractal_name = "Mandelbrot";
-	fractol.max_iter = MAX_ITER;
-	fractol.zoom = 1.0;
-	fractol.pos_x = 0.0;
-	fractol.pos_y = 0.0;
-	hook_handler_linux(&fractol);
+	init_fratol(&fractol);
+	hook_handler_mac(&fractol);
 	draw_fractal(&fractol);
 	mlx_loop(fractol.vars.mlx);
 	return (0);

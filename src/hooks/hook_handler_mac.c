@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:45:21 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/17 23:21:25 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/19 23:48:13 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	reset_hook(int keycode, t_fractol *fractol)
 void	zoom_hook(int keycode, t_fractol *fractol)
 {
 	if (keycode == KEY_W_MAC)
-		fractol->zoom *= 0.96;
+		fractol->zoom *= 1.2;
 	else if (keycode == KEY_S_MAC)
-		fractol->zoom /= 0.96;
+		fractol->zoom /= 1.2;
 }
 
 int	hook_key_handler(int keycode, t_fractol *fractol)

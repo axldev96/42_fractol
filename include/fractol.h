@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/17 23:57:52 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/19 23:47:35 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
-# include <X11/X.h>
+//# include <X11/X.h>
 
 # define WIDTH 800
 # define HEIGHT 800
-# define MAX_ITER 42
+# define MAX_ITER 100
 
 # define HYPOTENUSE 4.0
 
