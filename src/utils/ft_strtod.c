@@ -6,16 +6,11 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 19:53:41 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/17 00:17:28 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/20 08:21:32 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-static int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
 
 static int	s_chars(char c)
 {
@@ -67,7 +62,7 @@ double	ft_strtod(const char *str)
 		if (!ft_isdigit(str[i]))
 			return (0);
 		frac += (str[i] - '0') * mult;
-		mult*= 0.1;
+		mult *= 0.1;
 		i++;
 	}
 	return (sign * (dec + frac));

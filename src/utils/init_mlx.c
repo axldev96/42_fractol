@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/20 07:58:37 by acaceres         ###   ########.fr       */
+/*   Created: 2023/10/20 06:14:16 by acaceres          #+#    #+#             */
+/*   Updated: 2023/10/20 06:14:35 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int ac, char **av)
+void	init_mlx(t_fractol *fractol)
 {
-	t_fractol	fractol;
-
-	if (ac < 2)
+	fractol->vars.mlx = mlx_init();
+	if (!fractol->vars.mlx)
 		exit(EXIT_FAILURE);
-	check_fractal(&fractol, ac, av);
-	if (fractol.fractal_name == NULL)
-		return (printf("Error in parse"), 0);
-	init_mlx(&fractol);
-	init_fractol(&fractol, av);
-	hook_handler(&fractol);
-	draw_fractal(&fractol);
-	mlx_loop(fractol.vars.mlx);
-	return (0);
+	fractol->vars.win = mlx_new_window(fractol->vars.mlx, WIDTH,
+			HEIGHT, "Mandelbrot Fractal");
+	fractol->data.img = mlx_new_image(fractol->vars.mlx, WIDTH, HEIGHT);
+	fractol->data.addr = mlx_get_data_addr(fractol->data.img,
+			&fractol->data.bpp, &fractol->data.line_length,
+			&fractol->data.endian);
 }

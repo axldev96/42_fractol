@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_fractol.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/20 07:58:37 by acaceres         ###   ########.fr       */
+/*   Created: 2023/10/20 06:15:26 by acaceres          #+#    #+#             */
+/*   Updated: 2023/10/20 07:42:55 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int ac, char **av)
+void	init_fractol(t_fractol *fractol, char **av)
 {
-	t_fractol	fractol;
-
-	if (ac < 2)
-		exit(EXIT_FAILURE);
-	check_fractal(&fractol, ac, av);
-	if (fractol.fractal_name == NULL)
-		return (printf("Error in parse"), 0);
-	init_mlx(&fractol);
-	init_fractol(&fractol, av);
-	hook_handler(&fractol);
-	draw_fractal(&fractol);
-	mlx_loop(fractol.vars.mlx);
-	return (0);
+	fractol->max_iter = MAX_ITER;
+	fractol->zoom = 1.0;
+	fractol->pos_x = 0.0;
+	fractol->pos_y = 0.0;
+	if (!ft_strncmp(fractol->fractal_name, "Julia", 5))
+	{
+		fractol->julia.julia_complex.real = ft_strtod(av[2]);
+		fractol->julia.julia_complex.imag = ft_strtod(av[3]);
+	}
 }

@@ -6,15 +6,15 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/19 23:40:17 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/20 08:13:59 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 SRC_DIR = src
 SRC = $(SRC_DIR)/main.c \
-	$(SRC_DIR)/hooks/hook_handler_mac.c \
-	$(SRC_DIR)/hooks/hook_handler_linux.c \
+	$(SRC_DIR)/hooks/hook_handler.c \
+	$(SRC_DIR)/hooks/key_hooks.c \
 	$(SRC_DIR)/mlx_utils/ft_mlx_pixel_put.c \
 	$(SRC_DIR)/fractals/draw_fractal.c \
 	$(SRC_DIR)/utils/interpolate.c \
@@ -23,7 +23,12 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/utils/scales.c \
 	$(SRC_DIR)/utils/ft_strtod.c \
 	$(SRC_DIR)/utils/ft_strncmp.c \
-	$(SRC_DIR)/utils/select_complex_numbers.c
+	$(SRC_DIR)/utils/select_complex_numbers.c \
+	$(SRC_DIR)/utils/check_fractals.c \
+	$(SRC_DIR)/utils/ft_isdigit.c \
+	$(SRC_DIR)/utils/ft_strlen.c \
+	$(SRC_DIR)/utils/init_fractol.c \
+	$(SRC_DIR)/utils/init_mlx.c
 
 OBJ = $(SRC:.c=.o)
 MAIN_TARGET = all

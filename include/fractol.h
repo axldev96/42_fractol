@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/19 23:47:35 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/20 08:13:21 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,18 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
-//# include <X11/X.h>
+# include <float.h>
+# if __APPLE__ == 0
+#  include <X11/X.h>
+# endif
 
-# define WIDTH 800
-# define HEIGHT 800
-# define MAX_ITER 100
+# include "keys.h"
+
+# define WIDTH 600
+# define HEIGHT 600
+# define MAX_ITER 20
+
+#define MAX_LEN_DBL 317
 
 # define HYPOTENUSE 4.0
 
@@ -31,56 +38,6 @@
 # define WHITE 0x00FFFFFF
 # define BEIGE 0x00F5F5DC
 # define BISQUE 0x00FFE4C4
-
-// MAC KEYS
-# define ESCAPE_MAC 53
-
-# define ARROW_UP_MAC 126
-# define ARROW_DOWN_MAC 125
-# define ARROW_RIGHT_MAC 124
-# define ARROW_LEFT_MAC 123
-
-# define PLUS_MAC 24
-# define MINUS_MAC 27
-
-# define KEY_K_MAC 40
-# define KEY_J_MAC 38
-# define KEY_L_MAC 37
-# define KEY_H_MAC 4
-
-# define KEY_R_MAC 15
-
-# define KEY_W_MAC 13
-# define KEY_S_MAC 1
-
-// MAC MOUSE
-# define MOUSE_UP_MAC 5
-# define MOUSE_DOWN_MAC 4
-
-// LINUX KEYS
-# define ESCAPE_LINUX 65307
-
-# define ARROW_UP_LINUX 65362
-# define ARROW_DOWN_LINUX 65364
-# define ARROW_RIGHT_LINUX 65363
-# define ARROW_LEFT_LINUX 65361
-
-# define PLUS_LINUX 61
-# define MINUS_LINUX 45
-
-# define KEY_K_LINUX 107
-# define KEY_J_LINUX 106
-# define KEY_L_LINUX 108
-# define KEY_H_LINUX 104
-
-# define KEY_R_LINUX 114
-
-# define KEY_W_LINUX 119
-# define KEY_S_LINUX 115
-
-// LINUX MOUSE
-# define MOUSE_UP_LINUX 4
-# define MOUSE_DOWN_LINUX 5
 
 typedef struct s_scale
 {
@@ -138,23 +95,33 @@ typedef struct s_fractol
 }				t_fractol;
 
 // hooks
-void	hook_handler_mac(t_fractol *fractol);
-void	hook_handler_linux(t_fractol *fractol);
+
+void	close_hook(t_fractol *fractol);
+void	move_hook(int keycode, t_fractol *fractol);
+void	iters_hook(int keycode, t_fractol *fractol);
+void	reset_hook(int keycode, t_fractol *fractol);
+void	zoom_hook(int keycode, t_fractol *fractol);
+void	hook_handler(t_fractol *fractol);
 
 // mlx_utils
 void		ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 // utils
+void		check_fractal(t_fractol *fractol, int ac, char **av);
 void		init_scale_real(t_scale *scale_real, int x);
 void		init_scale_imag(t_scale *scale_imag, int y);
 void		init_scale_color(t_scale *scale_color, int i);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 double		interpolate(t_scale *scale);
 double		ft_strtod(const char *str);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z_1);
 void		select_complex_numbers(t_complex *z, t_complex *c,
-			t_scales *scales, t_fractol *fractol);
+				t_scales *scales, t_fractol *fractol);
+int			ft_isdigit(int c);
+size_t		ft_strlen(char *str);
+void		init_mlx(t_fractol *fractol);
+void		init_fractol(t_fractol *fractol, char **av);
 
 // fractals
 void	draw_fractal(t_fractol *fractol);
