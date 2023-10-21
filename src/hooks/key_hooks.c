@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 08:11:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 04:58:56 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/21 17:22:04 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 
 void	close_hook(t_fractol *fractol)
 {
-	mlx_destroy_image(&fractol->vars.mlx, fractol->data.img);
-	mlx_destroy_window(&fractol->vars.mlx, fractol->vars.win);
+	if (__linux__)
+	{
+		mlx_destroy_image(fractol->vars.mlx, fractol->data.img);
+		mlx_destroy_window(fractol->vars.mlx, fractol->vars.win);
+		mlx_destroy_display(fractol->vars.mlx);
+	}
+	else
+	{
+		mlx_destroy_image(&fractol->vars.mlx, fractol->data.img);
+		mlx_destroy_window(&fractol->vars.mlx, fractol->vars.win);
+	}
 	free(fractol->vars.mlx);
 	exit(EXIT_SUCCESS);
 }
