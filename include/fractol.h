@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 05:51:43 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/21 07:15:21 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@
 # define HEIGHT 600
 # define MAX_ITER 20
 
-#define MAX_LEN_DBL 317
+# define ON_DESTROY 17
+
+# define MAX_LEN_DBL 317
 
 # define HYPOTENUSE 4.0
 
@@ -75,7 +77,6 @@ typedef struct s_julia
 	t_complex	julia_complex;
 }		t_julia;
 
-
 typedef struct s_scales
 {
 	t_scale	scale_real;
@@ -108,12 +109,12 @@ void		init_t_fractol(t_fractol *fractol);
 
 // hooks
 
-void	close_hook(t_fractol *fractol);
-void	move_hook(int keycode, t_fractol *fractol);
-void	iters_hook(int keycode, t_fractol *fractol);
-void	reset_hook(int keycode, t_fractol *fractol);
-void	zoom_hook(int keycode, t_fractol *fractol);
-void	hook_handler(t_fractol *fractol);
+void		close_hook(t_fractol *fractol);
+void		move_hook(int keycode, t_fractol *fractol);
+void		iters_hook(int keycode, t_fractol *fractol);
+void		reset_hook(int keycode, t_fractol *fractol);
+void		zoom_hook(int keycode, t_fractol *fractol);
+void		hook_handler(t_fractol *fractol);
 
 // mlx_utils
 void		ft_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -132,6 +133,6 @@ size_t		ft_strlen(char *str);
 void		print_help_usage(void);
 
 // fractals
-void	draw_fractal(t_fractol *fractol);
+void		draw_fractal(t_fractol *fractol);
 
 #endif
