@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 07:15:21 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/21 08:13:34 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,9 @@ void		iters_hook(int keycode, t_fractol *fractol);
 void		reset_hook(int keycode, t_fractol *fractol);
 void		zoom_hook(int keycode, t_fractol *fractol);
 void		hook_handler(t_fractol *fractol);
+int			hook_mouse_handler(int action, int x, int y, t_fractol *fractol);
+int			window_close_hook(t_fractol *fractol);
+int			check_mouse_pos(int x, int y, t_fractol *fractol);
 
 // mlx_utils
 void		ft_mlx_pixel_put(t_data *data, int x, int y, int color);
