@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 08:10:54 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 08:48:55 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/21 17:48:43 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,22 @@ int	window_close_hook(t_fractol *fractol)
 int	check_mouse_pos(int x, int y, t_fractol *fractol)
 {
 	t_scales	mouse_scales;
-	double		new_pos_x;
-	double		new_pos_y;
+	double		new_real;
+	double		new_imag;
 
-	init_t_scales(&mouse_scales);
-	init_scale_real(&mouse_scales.scale_real, x);
-	init_scale_imag(&mouse_scales.scale_imag, y);
-	new_pos_x = (interpolate(&mouse_scales.scale_real)
-			* fractol->zoom) + fractol->pos_x;
-	new_pos_y = (interpolate(&mouse_scales.scale_imag)
-			* fractol->zoom) + fractol->pos_y;
-	if (!fractol)
-		return (0);
 	if (x < 0 || x > WIDTH)
 		return (1);
 	if (y < 0 || y > HEIGHT)
 		return (1);
-	fractol->julia.julia_complex.real = new_pos_x;
-	fractol->julia.julia_complex.imag = new_pos_y;
+	init_t_scales(&mouse_scales);
+	init_scale_real(&mouse_scales.scale_real, x);
+	init_scale_imag(&mouse_scales.scale_imag, y);
+	new_real = (interpolate(&mouse_scales.scale_real)
+			* fractol->zoom) + fractol->pos_x;
+	new_imag = (interpolate(&mouse_scales.scale_imag)
+			* fractol->zoom) + fractol->pos_y;
+	fractol->julia.julia_complex.real = new_real;
+	fractol->julia.julia_complex.imag = new_imag;
 	draw_fractal(fractol);
 	return (1);
 }

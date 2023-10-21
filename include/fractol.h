@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 16:45:09 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/21 17:46:20 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define MAX_ITER 20
 
 # define ON_DESTROY 17
+# define ON_MOUSEMOVE 6
 
 # define MAX_LEN_DBL 317
 
