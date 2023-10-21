@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/21 03:24:33 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/21 05:54:50 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/utils/check_fractals.c \
 	$(SRC_DIR)/utils/ft_isdigit.c \
 	$(SRC_DIR)/utils/ft_strlen.c \
+	$(SRC_DIR)/utils/print_help_usage.c \
 	$(SRC_DIR)/inits/init_scales.c \
 	$(SRC_DIR)/inits/init_fractol.c \
 	$(SRC_DIR)/inits/init_mlx.c	\
@@ -35,6 +36,9 @@ OBJ = $(SRC:.c=.o)
 MAIN_TARGET = all
 
 UNAME := $(shell uname)
+
+FT_PRINTF_DIR = ft_printf
+FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -48,21 +52,24 @@ $(RM) = rm
 
 # linux compilation:
 ifeq ($(UNAME), Linux)
-%.o: %.c
+%.o: %.c $(FT_PRINTF)
 	$(CC) $(CFLAGS) $(INCL) $(MLX_LINUX_INCLUDE) -c $< -o $@
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(INCL) $(OBJ) $(MLX_LINUX_FLAGS) -o $(NAME)
+$(NAME): $(OBJ) $(PRINTF)
+	$(CC) $(CFLAGS) $(INCL) $(OBJ) $(FT_PRINTF) $(MLX_LINUX_FLAGS) -o $(NAME)
 endif
 
 # macos commpilation:
 ifeq ($(UNAME), Darwin)
-%.o: %.c
+%.o: %.c $(FT_PRINTF)
 	$(CC) $(CFLAGS) $(INCL) $(MLX_MAC_INCLUDE) -c $< -o $@
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(INCL) $(OBJ) $(MLX_MAC_FLAGS) -o $(NAME)
+$(NAME): $(OBJ) $(FT_PRINTF)
+	$(CC) $(CFLAGS) $(INCL) $(OBJ) $(FT_PRINTF) $(MLX_MAC_FLAGS) -o $(NAME)
 endif
+
+$(FT_PRINTF):
+	$(MAKE) -sC $(FT_PRINTF_DIR)
 
 all: $(NAME)
 
@@ -71,6 +78,10 @@ re: fclean
 
 clean:
 	$(RM) $(OBJ)
+	$(MAKE) clean -C $(FT_PRINTF_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(MAKE) fclean -C $(FT_PRINTF_DIR)
+
+.PHONY: all clean fclean re

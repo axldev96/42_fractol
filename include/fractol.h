@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 03:32:37 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/21 05:51:43 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # endif
 
 # include "keys.h"
+# include "../ft_printf/ft_printf.h"
 
 # define WIDTH 600
 # define HEIGHT 600
@@ -128,6 +129,7 @@ void		select_complex_numbers(t_complex *z, t_complex *c,
 				t_scales *scales, t_fractol *fractol);
 int			ft_isdigit(int c);
 size_t		ft_strlen(char *str);
+void		print_help_usage(void);
 
 // fractals
 void	draw_fractal(t_fractol *fractol);
