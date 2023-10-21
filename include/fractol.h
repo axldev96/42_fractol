@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 08:13:34 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/21 08:42:39 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void		check_fractal(t_fractol *fractol, int ac, char **av);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 double		interpolate(t_scale *scale);
 double		ft_strtod(const char *str);
-t_complex	sum_complex(t_complex z1, t_complex z2);
+t_complex	sum_complex(t_complex z_1, t_complex z_2);
 t_complex	square_complex(t_complex z_1);
 void		select_complex_numbers(t_complex *z, t_complex *c,
 				t_scales *scales, t_fractol *fractol);

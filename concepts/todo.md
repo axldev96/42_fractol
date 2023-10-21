@@ -1,4 +1,3 @@
-* add close in x window button
-* create function to calculate colors
+* create function to change color range
 * add new fractal
 * add motion with mouse in Julia
