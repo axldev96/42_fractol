@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/20 08:13:21 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/21 03:32:37 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <mlx.h>
 # include <math.h>
 # include <float.h>
-# if __APPLE__ == 0
+# if __linux__
 #  include <X11/X.h>
 # endif
 
@@ -94,6 +94,17 @@ typedef struct s_fractol
 	int			max_iter;
 }				t_fractol;
 
+// inits
+void		init_scale_real(t_scale *scale_real, int x);
+void		init_scale_imag(t_scale *scale_imag, int y);
+void		init_scale_color(t_scale *scale_color, int i);
+void		init_mlx(t_fractol *fractol);
+void		init_fractol(t_fractol *fractol, char **av);
+void		init_t_scale(t_scale *scale);
+void		init_t_scales(t_scales *scales);
+void		init_t_complex(int len, t_complex **complex);
+void		init_t_fractol(t_fractol *fractol);
+
 // hooks
 
 void	close_hook(t_fractol *fractol);
@@ -108,9 +119,6 @@ void		ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 // utils
 void		check_fractal(t_fractol *fractol, int ac, char **av);
-void		init_scale_real(t_scale *scale_real, int x);
-void		init_scale_imag(t_scale *scale_imag, int y);
-void		init_scale_color(t_scale *scale_color, int i);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 double		interpolate(t_scale *scale);
 double		ft_strtod(const char *str);
@@ -120,8 +128,6 @@ void		select_complex_numbers(t_complex *z, t_complex *c,
 				t_scales *scales, t_fractol *fractol);
 int			ft_isdigit(int c);
 size_t		ft_strlen(char *str);
-void		init_mlx(t_fractol *fractol);
-void		init_fractol(t_fractol *fractol, char **av);
 
 // fractals
 void	draw_fractal(t_fractol *fractol);

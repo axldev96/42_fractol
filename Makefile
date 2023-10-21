@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/20 08:13:59 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/21 03:24:33 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,16 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/utils/interpolate.c \
 	$(SRC_DIR)/utils/sum_complex.c \
 	$(SRC_DIR)/utils/square_complex.c \
-	$(SRC_DIR)/utils/scales.c \
 	$(SRC_DIR)/utils/ft_strtod.c \
 	$(SRC_DIR)/utils/ft_strncmp.c \
 	$(SRC_DIR)/utils/select_complex_numbers.c \
 	$(SRC_DIR)/utils/check_fractals.c \
 	$(SRC_DIR)/utils/ft_isdigit.c \
 	$(SRC_DIR)/utils/ft_strlen.c \
-	$(SRC_DIR)/utils/init_fractol.c \
-	$(SRC_DIR)/utils/init_mlx.c
+	$(SRC_DIR)/inits/init_scales.c \
+	$(SRC_DIR)/inits/init_fractol.c \
+	$(SRC_DIR)/inits/init_mlx.c	\
+	$(SRC_DIR)/inits/init_base_values.c
 
 OBJ = $(SRC:.c=.o)
 MAIN_TARGET = all

@@ -1,24 +1,31 @@
 calculate_fractal	src/fractals/draw_fractal.c	/^int	calculate_fractal(int x, int y, t_fractol *fra/
-close_hook	src/hooks/hook_handler_mac.c	/^void	close_hook(t_fractol *fractol)$/
+check_doubles	src/utils/check_fractals.c	/^static int	check_doubles(char **av)$/
+check_fractal	src/utils/check_fractals.c	/^void	check_fractal(t_fractol *fractol, int ac, cha/
+close_hook	src/hooks/key_hooks.c	/^void	close_hook(t_fractol *fractol)$/
 draw_fractal	src/fractals/draw_fractal.c	/^void	draw_fractal(t_fractol *fractol)$/
+ft_isdigit	src/utils/ft_isdigit.c	/^int	ft_isdigit(int c)$/
 ft_mlx_pixel_put	src/mlx_utils/ft_mlx_pixel_put.c	/^void	ft_mlx_pixel_put(t_data *data, int x, int y, /
+ft_strlen	src/utils/ft_strlen.c	/^size_t	ft_strlen(char *str)$/
 ft_strncmp	src/utils/ft_strncmp.c	/^int	ft_strncmp(const char *s1, const char *s2, siz/
 ft_strtod	src/utils/ft_strtod.c	/^double	ft_strtod(const char *str)$/
 get_dec	src/utils/ft_strtod.c	/^static double	get_dec(const char *str, int *sign, /
-hook_handler_mac	src/hooks/hook_handler_mac.c	/^void	hook_handler_mac(t_fractol *fractol)$/
-hook_key_handler	src/hooks/hook_handler_mac.c	/^int	hook_key_handler(int keycode, t_fractol *fract/
-hook_mouse_handler	src/hooks/hook_handler_mac.c	/^int	hook_mouse_handler(int button, int x, int y, t/
+hook_handler	src/hooks/hook_handler.c	/^void	hook_handler(t_fractol *fractol)$/
+hook_key_handler	src/hooks/hook_handler.c	/^int	hook_key_handler(int keycode, t_fractol *fract/
+hook_mouse_handler	src/hooks/hook_handler.c	/^int	hook_mouse_handler(int button, int x, int y, t/
+init_fractol	src/utils/init_fractol.c	/^void	init_fractol(t_fractol *fractol, char **av)$/
+init_mlx	src/utils/init_mlx.c	/^void	init_mlx(t_fractol *fractol)$/
 init_scale_color	src/utils/scales.c	/^void	init_scale_color(t_scale *scale_color, int i)/
 init_scale_imag	src/utils/scales.c	/^void	init_scale_imag(t_scale *scale_imag, int y)$/
 init_scale_real	src/utils/scales.c	/^void	init_scale_real(t_scale *scale_real, int x)$/
 interpolate	src/utils/interpolate.c	/^double	interpolate(t_scale *scale)$/
-iters_hook	src/hooks/hook_handler_mac.c	/^void	iters_hook(int keycode, t_fractol *fractol)$/
-move_hook	src/hooks/hook_handler_mac.c	/^void	move_hook(int keycode, t_fractol *fractol)$/
-reset_hook	src/hooks/hook_handler_mac.c	/^void	reset_hook(int keycode, t_fractol *fractol)$/
+iter_doubles	src/utils/check_fractals.c	/^static int	iter_doubles(char **av, int *dot_flag)$/
+iters_hook	src/hooks/key_hooks.c	/^void	iters_hook(int keycode, t_fractol *fractol)$/
+move_hook	src/hooks/key_hooks.c	/^void	move_hook(int keycode, t_fractol *fractol)$/
+reset_hook	src/hooks/key_hooks.c	/^void	reset_hook(int keycode, t_fractol *fractol)$/
 s_chars	src/utils/ft_strtod.c	/^static int	s_chars(char c)$/
 select_complex_numbers	src/utils/select_complex_numbers.c	/^void	select_complex_numbers(t_complex *z, t_comple/
 set_complex_numbers_julia	src/utils/select_complex_numbers.c	/^void	set_complex_numbers_julia(t_complex *z, t_com/
 set_complex_numbers_mandelbrot	src/utils/select_complex_numbers.c	/^void	set_complex_numbers_mandelbrot(t_complex *z, /
 square_complex	src/utils/square_complex.c	/^t_complex	square_complex(t_complex z_1)$/
 sum_complex	src/utils/sum_complex.c	/^t_complex	sum_complex(t_complex z_1, t_complex z_2/
-zoom_hook	src/hooks/hook_handler_mac.c	/^void	zoom_hook(int keycode, t_fractol *fractol)$/
+zoom_hook	src/hooks/key_hooks.c	/^void	zoom_hook(int keycode, t_fractol *fractol)$/
