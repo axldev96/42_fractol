@@ -6,16 +6,11 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 03:26:35 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/21 05:00:03 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	my_leaks(void)
-{
-	system("leaks fractol");
-}
 
 int	main(int ac, char **av)
 {
@@ -27,7 +22,6 @@ int	main(int ac, char **av)
 	check_fractal(&fractol, ac, av);
 	if (fractol.fractal_name == NULL)
 		return (printf("Error in parse"), 0);
-	atexit(my_leaks);
 	init_mlx(&fractol);
 	init_fractol(&fractol, av);
 	hook_handler(&fractol);

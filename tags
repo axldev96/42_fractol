@@ -12,11 +12,15 @@ get_dec	src/utils/ft_strtod.c	/^static double	get_dec(const char *str, int *sign
 hook_handler	src/hooks/hook_handler.c	/^void	hook_handler(t_fractol *fractol)$/
 hook_key_handler	src/hooks/hook_handler.c	/^int	hook_key_handler(int keycode, t_fractol *fract/
 hook_mouse_handler	src/hooks/hook_handler.c	/^int	hook_mouse_handler(int button, int x, int y, t/
-init_fractol	src/utils/init_fractol.c	/^void	init_fractol(t_fractol *fractol, char **av)$/
-init_mlx	src/utils/init_mlx.c	/^void	init_mlx(t_fractol *fractol)$/
-init_scale_color	src/utils/scales.c	/^void	init_scale_color(t_scale *scale_color, int i)/
-init_scale_imag	src/utils/scales.c	/^void	init_scale_imag(t_scale *scale_imag, int y)$/
-init_scale_real	src/utils/scales.c	/^void	init_scale_real(t_scale *scale_real, int x)$/
+init_fractol	src/inits/init_fractol.c	/^void	init_fractol(t_fractol *fractol, char **av)$/
+init_mlx	src/inits/init_mlx.c	/^void	init_mlx(t_fractol *fractol)$/
+init_scale_color	src/inits/init_scales.c	/^void	init_scale_color(t_scale *scale_color, int i)/
+init_scale_imag	src/inits/init_scales.c	/^void	init_scale_imag(t_scale *scale_imag, int y)$/
+init_scale_real	src/inits/init_scales.c	/^void	init_scale_real(t_scale *scale_real, int x)$/
+init_t_complex	src/inits/init_base_values.c	/^void	init_t_complex(int len, t_complex **complex)$/
+init_t_fractol	src/inits/init_base_values.c	/^void	init_t_fractol(t_fractol *fractol)$/
+init_t_scale	src/inits/init_base_values.c	/^void	init_t_scale(t_scale *scale)$/
+init_t_scales	src/inits/init_base_values.c	/^void	init_t_scales(t_scales *scales)$/
 interpolate	src/utils/interpolate.c	/^double	interpolate(t_scale *scale)$/
 iter_doubles	src/utils/check_fractals.c	/^static int	iter_doubles(char **av, int *dot_flag)$/
 iters_hook	src/hooks/key_hooks.c	/^void	iters_hook(int keycode, t_fractol *fractol)$/
