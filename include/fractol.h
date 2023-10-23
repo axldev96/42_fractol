@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 17:46:20 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/23 17:15:37 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 # define WIDTH 600
 # define HEIGHT 600
-# define MAX_ITER 20
+# define MAX_ITER 12
 
 # define ON_DESTROY 17
 # define ON_MOUSEMOVE 6
@@ -129,6 +129,7 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 double		interpolate(t_scale *scale);
 double		ft_strtod(const char *str);
 t_complex	sum_complex(t_complex z_1, t_complex z_2);
+t_complex	subtract_complex(t_complex z_1, t_complex z_2);
 t_complex	square_complex(t_complex z_1);
 void		select_complex_numbers(t_complex *z, t_complex *c,
 				t_scales *scales, t_fractol *fractol);

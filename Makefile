@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/21 17:19:56 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/23 17:21:20 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/fractals/draw_fractal.c \
 	$(SRC_DIR)/utils/interpolate.c \
 	$(SRC_DIR)/utils/sum_complex.c \
+	$(SRC_DIR)/utils/subtract_complex.c \
 	$(SRC_DIR)/utils/square_complex.c \
 	$(SRC_DIR)/utils/ft_strtod.c \
 	$(SRC_DIR)/utils/ft_strncmp.c \
@@ -42,7 +43,7 @@ FT_PRINTF_DIR = ft_printf
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 INCL = -Iinclude
 MLX_MAC_INCLUDE = -Imlx
 MLX_MAC_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
