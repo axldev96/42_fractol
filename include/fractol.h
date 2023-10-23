@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/23 17:15:37 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:02:33 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <mlx.h>
 # include <math.h>
 # include <float.h>
+# ifndef __APPLE__
+#  define __APPLE__ 0
+# endif
 # if __linux__
 #  include <X11/X.h>
 # endif
@@ -28,7 +31,7 @@
 
 # define WIDTH 600
 # define HEIGHT 600
-# define MAX_ITER 12
+# define MAX_ITER 10
 
 # define ON_DESTROY 17
 # define ON_MOUSEMOVE 6
@@ -127,6 +130,7 @@ void		ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 void		check_fractal(t_fractol *fractol, int ac, char **av);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 double		interpolate(t_scale *scale);
+double		interpolate_color(t_scale *scale);
 double		ft_strtod(const char *str);
 t_complex	sum_complex(t_complex z_1, t_complex z_2);
 t_complex	subtract_complex(t_complex z_1, t_complex z_2);
