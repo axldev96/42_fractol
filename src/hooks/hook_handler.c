@@ -6,20 +6,30 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:23:56 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/23 19:04:01 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/24 07:42:46 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+void	fix_image(int keycode, t_fractol *fractol)
+{
+	if (keycode == KEY_F && !fractol->is_fixed)
+		fractol->is_fixed = 1;
+	else if (keycode == KEY_F && fractol->is_fixed)
+		fractol->is_fixed = 0;
+}
+
 int	hook_key_handler(int keycode, t_fractol *fractol)
 {
 	if (keycode == ESCAPE)
 		close_hook(fractol);
+	fix_image(keycode, fractol);
 	move_hook(keycode, fractol);
 	iters_hook(keycode, fractol);
 	zoom_hook(keycode, fractol);
 	reset_hook(keycode, fractol);
+	color_type(keycode, fractol);
 	draw_fractal(fractol);
 	return (0);
 }

@@ -6,28 +6,11 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 08:11:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/23 18:34:46 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/24 07:44:34 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	close_hook(t_fractol *fractol)
-{
-	if (__linux__)
-	{
-		mlx_destroy_image(fractol->vars.mlx, fractol->data.img);
-		mlx_destroy_window(fractol->vars.mlx, fractol->vars.win);
-		mlx_destroy_display(fractol->vars.mlx);
-	}
-	else
-	{
-		mlx_destroy_image(&fractol->vars.mlx, fractol->data.img);
-		mlx_destroy_window(&fractol->vars.mlx, fractol->vars.win);
-	}
-	free(fractol->vars.mlx);
-	exit(EXIT_SUCCESS);
-}
 
 void	move_hook(int keycode, t_fractol *fractol)
 {
@@ -57,12 +40,26 @@ void	reset_hook(int keycode, t_fractol *fractol)
 	fractol->zoom = 1.0;
 	fractol->pos_x = 0.0;
 	fractol->pos_y = 0.0;
+	fractol->is_fixed = 0;
+	fractol->color_type = 1;
 }
 
 void	zoom_hook(int keycode, t_fractol *fractol)
 {
 	if (keycode == KEY_W)
-		fractol->zoom *= 0.95;
+		fractol->zoom /= 1.4;
 	else if (keycode == KEY_S)
-		fractol->zoom *= 1.05;
+		fractol->zoom *= 1.4;
+}
+
+void	color_type(int keycode, t_fractol *fractol)
+{
+	if (keycode != KEY_C)
+		return ;
+	if (fractol->color_type == 0)
+		fractol->color_type = 1;
+	else if (fractol->color_type == 1)
+		fractol->color_type = 2;
+	else if (fractol->color_type == 2)
+		fractol->color_type = 0;
 }

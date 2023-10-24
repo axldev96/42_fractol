@@ -3,7 +3,9 @@ check_doubles	src/utils/check_fractals.c	/^static int	check_doubles(char **av)$/
 check_fractal	src/utils/check_fractals.c	/^void	check_fractal(t_fractol *fractol, int ac, cha/
 check_mouse_pos	src/hooks/mouse_hooks.c	/^int	check_mouse_pos(int x, int y, t_fractol *fract/
 close_hook	src/hooks/key_hooks.c	/^void	close_hook(t_fractol *fractol)$/
+complex_abs_value	src/utils/complex_abs_velue.c	/^double	complex_abs_value(t_complex z_1)$/
 draw_fractal	src/fractals/draw_fractal.c	/^void	draw_fractal(t_fractol *fractol)$/
+fix_image	src/hooks/hook_handler.c	/^void	fix_image(int keycode, t_fractol *fractol)$/
 ft_isdigit	src/utils/ft_isdigit.c	/^int	ft_isdigit(int c)$/
 ft_mlx_pixel_put	src/mlx_utils/ft_mlx_pixel_put.c	/^void	ft_mlx_pixel_put(t_data *data, int x, int y, /
 ft_strlen	src/utils/ft_strlen.c	/^size_t	ft_strlen(char *str)$/
@@ -15,7 +17,7 @@ hook_key_handler	src/hooks/hook_handler.c	/^int	hook_key_handler(int keycode, t_
 hook_mouse_handler	src/hooks/mouse_hooks.c	/^int	hook_mouse_handler(int action, int x, int y, t/
 init_fractol	src/inits/init_fractol.c	/^void	init_fractol(t_fractol *fractol, char **av)$/
 init_mlx	src/inits/init_mlx.c	/^void	init_mlx(t_fractol *fractol)$/
-init_scale_color	src/inits/init_scales.c	/^void	init_scale_color(t_scale *scale_color, int i)/
+init_scale_color	src/inits/init_scales.c	/^void	init_scale_color(t_scale *scale_color, int i,/
 init_scale_imag	src/inits/init_scales.c	/^void	init_scale_imag(t_scale *scale_imag, int y)$/
 init_scale_real	src/inits/init_scales.c	/^void	init_scale_real(t_scale *scale_real, int x)$/
 init_t_complex	src/inits/init_base_values.c	/^void	init_t_complex(int len, t_complex **complex)$/
@@ -23,6 +25,7 @@ init_t_fractol	src/inits/init_base_values.c	/^void	init_t_fractol(t_fractol *fra
 init_t_scale	src/inits/init_base_values.c	/^void	init_t_scale(t_scale *scale)$/
 init_t_scales	src/inits/init_base_values.c	/^void	init_t_scales(t_scales *scales)$/
 interpolate	src/utils/interpolate.c	/^double	interpolate(t_scale *scale)$/
+interpolate_color	src/utils/interpolate.c	/^double	interpolate_color(t_scale *scale)$/
 iter_doubles	src/utils/check_fractals.c	/^static int	iter_doubles(char **av, int *dot_flag)$/
 iters_hook	src/hooks/key_hooks.c	/^void	iters_hook(int keycode, t_fractol *fractol)$/
 move_hook	src/hooks/key_hooks.c	/^void	move_hook(int keycode, t_fractol *fractol)$/
@@ -33,6 +36,7 @@ select_complex_numbers	src/utils/select_complex_numbers.c	/^void	select_complex_
 set_complex_numbers_julia	src/utils/select_complex_numbers.c	/^void	set_complex_numbers_julia(t_complex *z, t_com/
 set_complex_numbers_mandelbrot	src/utils/select_complex_numbers.c	/^void	set_complex_numbers_mandelbrot(t_complex *z, /
 square_complex	src/utils/square_complex.c	/^t_complex	square_complex(t_complex z_1)$/
+subtract_complex	src/utils/subtract_complex.c	/^t_complex	subtract_complex(t_complex z_1, t_comple/
 sum_complex	src/utils/sum_complex.c	/^t_complex	sum_complex(t_complex z_1, t_complex z_2/
 window_close_hook	src/hooks/mouse_hooks.c	/^int	window_close_hook(t_fractol *fractol)$/
 zoom_hook	src/hooks/key_hooks.c	/^void	zoom_hook(int keycode, t_fractol *fractol)$/

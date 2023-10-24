@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/23 17:21:20 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/24 07:45:31 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/hooks/hook_handler.c \
 	$(SRC_DIR)/hooks/key_hooks.c \
 	$(SRC_DIR)/hooks/mouse_hooks.c \
+	$(SRC_DIR)/hooks/close_hook.c \
 	$(SRC_DIR)/mlx_utils/ft_mlx_pixel_put.c \
 	$(SRC_DIR)/fractals/draw_fractal.c \
 	$(SRC_DIR)/utils/interpolate.c \

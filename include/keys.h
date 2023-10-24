@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 07:10:03 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/20 07:16:01 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/24 07:28:41 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@
 
 #  define KEY_W 13
 #  define KEY_S 1
+
+#  define KEY_F 3
+
+#  define KEY_C 8
+
+#  define KEY_V 9
 
 #  define MOUSE_UP 5
 #  define MOUSE_DOWN 4

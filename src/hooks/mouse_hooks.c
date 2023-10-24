@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 08:10:54 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/23 19:06:19 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/24 07:46:13 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,9 @@ int	hook_mouse_handler(int action, int x, int y, t_fractol *fractol)
 	new_pos_y = (interpolate(&mouse_scales.scale_imag)
 			* fractol->zoom) + fractol->pos_y;
 	if (action == MOUSE_UP)
-		fractol->zoom *= 1.05;
+		fractol->zoom /= 1.4;
 	else if (action == MOUSE_DOWN)
-		fractol->zoom *= 0.95;
-	fractol->pos_x = new_pos_x;
-	fractol->pos_y = new_pos_y;
-	// draw_fractal(fractol);
+		fractol->zoom *= 1.4;
 	return (0);
 }
 
@@ -47,6 +44,8 @@ int	check_mouse_pos(int x, int y, t_fractol *fractol)
 	double		new_real;
 	double		new_imag;
 
+	if (fractol->is_fixed)
+		return (1);
 	if (x < 0 || x > WIDTH)
 		return (1);
 	if (y < 0 || y > HEIGHT)

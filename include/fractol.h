@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/23 19:02:33 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/24 07:45:07 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@
 # ifndef __APPLE__
 #  define __APPLE__ 0
 # endif
+# ifndef __linux__
+#  define __linux__ 0
+# endif
+# ifndef MotionNotify
+#  define MotionNotify 0
+#  define PointerMotionMask 0
+#  define mlx_destroy_display(ptr) NULL
+# endif
 # if __linux__
 #  include <X11/X.h>
 # endif
@@ -31,7 +39,7 @@
 
 # define WIDTH 600
 # define HEIGHT 600
-# define MAX_ITER 10
+# define MAX_ITER 22
 
 # define ON_DESTROY 17
 # define ON_MOUSEMOVE 6
@@ -43,8 +51,6 @@
 // Colors
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
-# define BEIGE 0x00F5F5DC
-# define BISQUE 0x00FFE4C4
 
 typedef struct s_scale
 {
@@ -98,12 +104,14 @@ typedef struct s_fractol
 	double		zoom;
 	char		*fractal_name;
 	int			max_iter;
+	int			is_fixed;
+	int			color_type;
 }				t_fractol;
 
 // inits
 void		init_scale_real(t_scale *scale_real, int x);
 void		init_scale_imag(t_scale *scale_imag, int y);
-void		init_scale_color(t_scale *scale_color, int i);
+void		init_scale_color(t_scale *scale_color, int i, t_fractol *fractol);
 void		init_mlx(t_fractol *fractol);
 void		init_fractol(t_fractol *fractol, char **av);
 void		init_t_scale(t_scale *scale);
@@ -112,16 +120,17 @@ void		init_t_complex(int len, t_complex **complex);
 void		init_t_fractol(t_fractol *fractol);
 
 // hooks
-
 void		close_hook(t_fractol *fractol);
 void		move_hook(int keycode, t_fractol *fractol);
 void		iters_hook(int keycode, t_fractol *fractol);
 void		reset_hook(int keycode, t_fractol *fractol);
 void		zoom_hook(int keycode, t_fractol *fractol);
 void		hook_handler(t_fractol *fractol);
+void		color_type(int keycode, t_fractol *fractol);
 int			hook_mouse_handler(int action, int x, int y, t_fractol *fractol);
 int			window_close_hook(t_fractol *fractol);
 int			check_mouse_pos(int x, int y, t_fractol *fractol);
+void		close_hook(t_fractol *fractol);
 
 // mlx_utils
 void		ft_mlx_pixel_put(t_data *data, int x, int y, int color);
