@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 21:30:14 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 21:51:04 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@
 // Colors
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
+
+typedef enum fractals
+{
+	Mandelbrot,
+	Julia,
+	Burning_Ship
+};
 
 typedef struct s_scale
 {
