@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 08:11:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/24 07:44:34 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/24 10:27:22 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	move_hook(int keycode, t_fractol *fractol)
 void	iters_hook(int keycode, t_fractol *fractol)
 {
 	if (keycode == PLUS)
-		fractol->max_iter += 3;
+		fractol->max_iter += 5;
 	if (keycode == MINUS && fractol->max_iter > 5)
-		fractol->max_iter -= 3;
+		fractol->max_iter -= 5;
 }
 
 void	reset_hook(int keycode, t_fractol *fractol)
@@ -37,11 +37,11 @@ void	reset_hook(int keycode, t_fractol *fractol)
 	if (keycode != KEY_R)
 		return ;
 	fractol->max_iter = MAX_ITER;
-	fractol->zoom = 1.0;
+	fractol->zoom = 4.0;
 	fractol->pos_x = 0.0;
 	fractol->pos_y = 0.0;
 	fractol->is_fixed = 0;
-	fractol->color_type = 1;
+	fractol->color_type = 0;
 }
 
 void	zoom_hook(int keycode, t_fractol *fractol)

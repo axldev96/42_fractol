@@ -1,2 +1,2 @@
-* create function to change color range
+* fix the zoom with mouse
 * add new fractal
