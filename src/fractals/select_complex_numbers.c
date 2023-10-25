@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 23:56:57 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 21:19:29 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:10:36 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,10 @@ void	set_complex_numbers_burning_ship(t_complex *z, t_complex *c,
 void	select_complex_numbers(t_complex *z, t_complex *c,
 		t_scales *scales, t_fractol *fractol)
 {
-	if (!ft_strncmp(fractol->fractal_name, "Julia", 5)
-		&& ft_strlen(fractol->fractal_name) == 5)
-		set_complex_numbers_julia(z, c, scales, fractol);
-	else if (!ft_strncmp(fractol->fractal_name, "Mandelbrot", 10)
-		&& ft_strlen(fractol->fractal_name) == 10)
+	if (fractol->fname == Mandelbrot)
 		set_complex_numbers_mandelbrot(z, c, scales, fractol);
-	else if (!ft_strncmp(fractol->fractal_name, "Burning Ship", 12)
-		&& ft_strlen(fractol->fractal_name) == 12)
+	else if (fractol->fname == Julia)
+		set_complex_numbers_julia(z, c, scales, fractol);
+	else if (fractol->fname == Burning_Ship)
 		set_complex_numbers_burning_ship(z, c, scales, fractol);
 }

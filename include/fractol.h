@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 21:51:04 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:51:04 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
 
-typedef enum fractals
+enum f_names
 {
 	Mandelbrot,
 	Julia,
@@ -94,6 +94,7 @@ typedef struct s_fractol
 	t_vars		vars;
 	t_data		data;
 	t_julia		julia;
+	enum f_names	fname;
 	double		pos_x;
 	double		pos_y;
 	double		zoom;
