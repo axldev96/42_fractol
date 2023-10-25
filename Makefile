@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/25 11:45:22 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/25 21:17:46 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/math_utils/mult_complex.c \
 	$(SRC_DIR)/math_utils/divide_complex.c \
 	$(SRC_DIR)/math_utils/power_complex.c \
+	$(SRC_DIR)/math_utils/fabs_complex.c \
 	$(SRC_DIR)/utils/ft_strtod.c \
 	$(SRC_DIR)/utils/ft_strncmp.c \
 	$(SRC_DIR)/utils/ft_isdigit.c \
@@ -46,7 +47,7 @@ FT_PRINTF_DIR = ft_printf
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
 INCL = -Iinclude
 MLX_MAC_INCLUDE = -Imlx
 MLX_MAC_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit

@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:23:56 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 12:15:25 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:56:51 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ void	fix_image(int keycode, t_fractol *fractol)
 		fractol->is_fixed = 0;
 }
 
+void	power_up(int keycode, t_fractol *fractol)
+{
+	if (keycode == KEY_P)
+		fractol->power += 1;
+}
+
 int	hook_key_handler(int keycode, t_fractol *fractol)
 {
 	if (keycode == ESCAPE)
@@ -30,6 +36,7 @@ int	hook_key_handler(int keycode, t_fractol *fractol)
 	zoom_hook(keycode, fractol);
 	reset_hook(keycode, fractol);
 	color_type(keycode, fractol);
+	power_up(keycode, fractol);
 	draw_fractal(fractol);
 	return (0);
 }

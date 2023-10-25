@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 12:12:53 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 21:30:14 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,8 @@
 # include <mlx.h>
 # include <math.h>
 # include <float.h>
-# ifndef __APPLE__
-#  define __APPLE__ 0
-# endif
-# ifndef __linux__
-#  define __linux__ 0
-# endif
-# ifndef MotionNotify
-#  define MotionNotify 0
-#  define PointerMotionMask 0
-#  define mlx_destroy_display(ptr) NULL
-# endif
-# if __linux__
-#  include <X11/X.h>
-# endif
+
+//# include <X11/X.h>
 
 # include "keys.h"
 # include "../ft_printf/ft_printf.h"
@@ -46,7 +34,7 @@
 
 # define MAX_LEN_DBL 317
 
-# define HYPOTENUSE 10
+# define HYPOTENUSE 4
 
 // Colors
 # define BLACK 0x00000000
@@ -147,6 +135,7 @@ t_complex	subtract_complex(t_complex z_1, t_complex z_2);
 t_complex	divide_complex(t_complex z_1, t_complex z_2);
 t_complex	mult_complex(t_complex z_1, t_complex z_2);
 t_complex	power_complex(t_complex z, int n);
+t_complex	fabs_complex(t_complex c);
 void		select_complex_numbers(t_complex *z, t_complex *c,
 				t_scales *scales, t_fractol *fractol);
 int			ft_isdigit(int c);

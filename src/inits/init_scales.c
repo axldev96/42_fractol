@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 03:22:36 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 08:05:52 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:13:34 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ void	init_scale_color(t_scale *scale_color, int i, t_fractol *fractol)
 	{
 		scale_color->target_min = BLACK;
 		scale_color->target_max = WHITE;
-		scale_color->original_max = fractol->max_iter;
 		scale_color->original_min = 0;
+		scale_color->original_max = fractol->max_iter;
 	}
 	else if (fractol->color_type == 2)
 	{
 		scale_color->target_min = 0x00FF2E02;
 		scale_color->target_max = 0x00FF6545;
-		scale_color->original_max = MAX_ITER;
 		scale_color->original_min = 0x00FE6545;
+		scale_color->original_max = MAX_ITER;
 	}
 	else
 	{

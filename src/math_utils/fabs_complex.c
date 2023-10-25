@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fabs_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 16:26:35 by acaceres         ###   ########.fr       */
+/*   Created: 2023/10/25 21:16:53 by acaceres          #+#    #+#             */
+/*   Updated: 2023/10/25 21:19:51 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int ac, char **av)
+t_complex	fabs_complex(t_complex c)
 {
-	t_fractol	fractol;
+	t_complex	result;
 
-	if (ac < 2)
-		print_help_usage();
-	init_t_fractol(&fractol);
-	check_fractal(&fractol, ac, av);
-	if (fractol.fractal_name == NULL)
-		print_help_usage();
-	init_mlx(&fractol);
-	init_fractol(&fractol, av);
-	hook_handler(&fractol);
-	draw_fractal(&fractol);
-	mlx_loop(fractol.vars.mlx);
-	return (0);
+	result.real = fabs(c.real);
+	result.imag = fabs(c.imag);
+	return (result);
 }

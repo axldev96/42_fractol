@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:10:59 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 11:18:44 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:24:38 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ t_complex	power_complex(t_complex z, int power)
 	t_complex	result;
 	int			i;
 
+	i = 1;
 	if (power == 0)
 		return (result.real = 0, result.imag = 1, result);
 	else if (power == 1)
 		return (z);
-	i = 1;
+	result = z;
 	while (i < power)
 	{
-		result = z;
 		result = mult_complex(z, result);
 		i++;
 	}
