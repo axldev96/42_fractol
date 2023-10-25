@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:12:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/24 11:40:09 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:03:21 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ void	check_fractal(t_fractol *fractol, int ac, char **av)
 	else if (ac == 4 && !ft_strncmp(av[1], "Julia", 5) && check_doubles(av)
 		&& ft_strlen(av[1]) == 5)
 		fractol->fractal_name = "Julia";
-	else if (ac == 2 && !ft_strncmp(av[1], "Julia Sin", 9) && ft_strlen(av[1]) == 9)
-		fractol->fractal_name = "Julia Sin";
 	else
 		fractol->fractal_name = NULL;
 }

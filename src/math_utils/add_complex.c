@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sum_complex.c                                      :+:      :+:    :+:   */
+/*   add_complex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 09:50:24 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/23 17:18:39 by acaceres         ###   ########.fr       */
+/*   Created: 2023/10/25 11:30:30 by acaceres          #+#    #+#             */
+/*   Updated: 2023/10/25 11:33:42 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_complex	sum_complex(t_complex z_1, t_complex z_2)
+t_complex	add_complex(t_complex z_1, t_complex z_2)
 {
 	t_complex	z_3;
 

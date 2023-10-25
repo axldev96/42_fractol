@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mult_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 01:49:08 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 12:08:27 by acaceres         ###   ########.fr       */
+/*   Created: 2023/10/25 10:06:44 by acaceres          #+#    #+#             */
+/*   Updated: 2023/10/25 11:40:50 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int ac, char **av)
+t_complex	mult_complex(t_complex z_1, t_complex z_2)
 {
-	t_fractol	fractol;
+	t_complex	result;
 
-	if (ac < 2)
-		print_help_usage();
-	init_t_fractol(&fractol);
-	check_fractal(&fractol, ac, av);
-	if (fractol.fractal_name == NULL)
-		print_help_usage();
-	init_mlx(&fractol);
-	init_fractol(&fractol, av);
-	hook_handler(&fractol);
-	draw_fractal(&fractol);
-	mlx_loop(fractol.vars.mlx);
-	return (0);
+	result.real = z_1.real * z_2.real - z_1.imag * z_2.imag;
+	result.imag = z_1.real * z_2.imag + z_1.imag * z_2.real;
+	return (result);
 }

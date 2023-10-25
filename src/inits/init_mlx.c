@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:14:16 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/21 17:35:03 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:04:13 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_mlx(t_fractol *fractol)
 	if (!fractol->vars.mlx)
 		exit(EXIT_FAILURE);
 	fractol->vars.win = mlx_new_window(fractol->vars.mlx, WIDTH,
-			HEIGHT, "Mandelbrot Fractal");
+			HEIGHT, fractol->fractal_name);
 	if (!fractol->vars.win)
 	{
 		free(fractol->vars.mlx);

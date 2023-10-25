@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/25 05:03:42 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/25 11:45:22 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,11 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/fractals/check_fractals.c \
 	$(SRC_DIR)/fractals/select_complex_numbers.c \
 	$(SRC_DIR)/math_utils/interpolate.c \
-	$(SRC_DIR)/math_utils/sum_complex.c \
+	$(SRC_DIR)/math_utils/add_complex.c \
 	$(SRC_DIR)/math_utils/subtract_complex.c \
-	$(SRC_DIR)/math_utils/square_complex.c \
+	$(SRC_DIR)/math_utils/mult_complex.c \
+	$(SRC_DIR)/math_utils/divide_complex.c \
+	$(SRC_DIR)/math_utils/power_complex.c \
 	$(SRC_DIR)/utils/ft_strtod.c \
 	$(SRC_DIR)/utils/ft_strncmp.c \
 	$(SRC_DIR)/utils/ft_isdigit.c \

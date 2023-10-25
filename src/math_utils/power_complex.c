@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_fractol.c                                     :+:      :+:    :+:   */
+/*   power_complex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 06:15:26 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 12:13:06 by acaceres         ###   ########.fr       */
+/*   Created: 2023/10/25 11:10:59 by acaceres          #+#    #+#             */
+/*   Updated: 2023/10/25 11:18:44 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_fractol(t_fractol *fractol, char **av)
+t_complex	power_complex(t_complex z, int power)
 {
-	fractol->max_iter = MAX_ITER;
-	fractol->zoom = 4.0;
-	fractol->pos_x = 0.0;
-	fractol->pos_y = 0.0;
-	fractol->is_fixed = 1;
-	fractol->color_type = 0;
-	fractol->power = 2;
-	if (!ft_strncmp(fractol->fractal_name, "Julia", 5)
-		&& ft_strlen(fractol->fractal_name) == 5)
+	t_complex	result;
+	int			i;
+
+	if (power == 0)
+		return (result.real = 0, result.imag = 1, result);
+	else if (power == 1)
+		return (z);
+	i = 1;
+	while (i < power)
 	{
-		fractol->julia.julia_complex.real = ft_strtod(av[2]);
-		fractol->julia.julia_complex.imag = ft_strtod(av[3]);
+		result = z;
+		result = mult_complex(z, result);
+		i++;
 	}
+	return (result);
 }

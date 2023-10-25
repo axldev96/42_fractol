@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 08:11:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/24 10:27:22 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:12:41 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	move_hook(int keycode, t_fractol *fractol)
 {
 	if (keycode == ARROW_UP || keycode == KEY_K)
-		fractol->pos_y += (0.5 * fractol->zoom);
-	else if (keycode == ARROW_DOWN || keycode == KEY_J)
 		fractol->pos_y -= (0.5 * fractol->zoom);
+	else if (keycode == ARROW_DOWN || keycode == KEY_J)
+		fractol->pos_y += (0.5 * fractol->zoom);
 	else if (keycode == ARROW_RIGHT || keycode == KEY_L)
 		fractol->pos_x += (0.5 * fractol->zoom);
 	else if (keycode == ARROW_LEFT || keycode == KEY_H)
@@ -36,12 +36,15 @@ void	reset_hook(int keycode, t_fractol *fractol)
 {
 	if (keycode != KEY_R)
 		return ;
+	if (keycode == KEY_P)
+		fractol->power += 1;
 	fractol->max_iter = MAX_ITER;
 	fractol->zoom = 4.0;
 	fractol->pos_x = 0.0;
 	fractol->pos_y = 0.0;
 	fractol->is_fixed = 0;
 	fractol->color_type = 0;
+	fractol->power = 2;
 }
 
 void	zoom_hook(int keycode, t_fractol *fractol)

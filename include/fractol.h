@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/24 10:08:24 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:12:53 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@
 
 # define WIDTH 600
 # define HEIGHT 600
-# define MAX_ITER 20
+# define MAX_ITER 21
 
 # define ON_DESTROY 17
 # define ON_MOUSEMOVE 6
 
 # define MAX_LEN_DBL 317
 
-# define HYPOTENUSE 4.0
+# define HYPOTENUSE 10
 
 // Colors
 # define BLACK 0x00000000
@@ -106,6 +106,7 @@ typedef struct s_fractol
 	int			max_iter;
 	int			is_fixed;
 	int			color_type;
+	int			power;
 }				t_fractol;
 
 // inits
@@ -141,15 +142,16 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 double		interpolate(t_scale *scale);
 double		interpolate_color(t_scale *scale);
 double		ft_strtod(const char *str);
-t_complex	sum_complex(t_complex z_1, t_complex z_2);
+t_complex	add_complex(t_complex z_1, t_complex z_2);
 t_complex	subtract_complex(t_complex z_1, t_complex z_2);
-t_complex	square_complex(t_complex z_1);
+t_complex	divide_complex(t_complex z_1, t_complex z_2);
+t_complex	mult_complex(t_complex z_1, t_complex z_2);
+t_complex	power_complex(t_complex z, int n);
 void		select_complex_numbers(t_complex *z, t_complex *c,
 				t_scales *scales, t_fractol *fractol);
 int			ft_isdigit(int c);
 size_t		ft_strlen(char *str);
 void		print_help_usage(void);
-t_complex	mult_complex(t_complex z_1, t_complex z_2);
 
 // fractals
 void		draw_fractal(t_fractol *fractol);
