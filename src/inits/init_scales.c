@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 03:22:36 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 18:13:34 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:43:18 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,12 @@ void	init_scale_imag(t_scale *scale_imag, int y)
 void	init_scale_color(t_scale *scale_color, int i, t_fractol *fractol)
 {
 	scale_color->value_to_scale = i;
-	if (fractol->color_type == 1)
-	{
-		scale_color->target_min = BLACK;
-		scale_color->target_max = WHITE;
-		scale_color->original_min = 0;
-		scale_color->original_max = fractol->max_iter;
-	}
+	if (fractol->color_type == 0)
+		type_zero(scale_color);
+	else if (fractol->color_type == 1)
+		type_one(scale_color, fractol);
 	else if (fractol->color_type == 2)
-	{
-		scale_color->target_min = 0x00FF2E02;
-		scale_color->target_max = 0x00FF6545;
-		scale_color->original_min = 0x00FE6545;
-		scale_color->original_max = MAX_ITER;
-	}
-	else
-	{
-		scale_color->target_min = 0;
-		scale_color->target_max = 500;
-		scale_color->original_min = 0;
-		scale_color->original_max = MAX_ITER;
-	}
+		type_two(scale_color, fractol);
+	else if (fractol->color_type == 3)
+		type_three(scale_color, fractol);
 }

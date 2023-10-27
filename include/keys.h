@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 07:10:03 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 10:56:15 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 00:56:11 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 #  define KEY_F 3
 
 #  define KEY_C 8
+
+#  define KEY_Z 6
 
 #  define KEY_V 9
 

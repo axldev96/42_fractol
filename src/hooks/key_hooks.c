@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 08:11:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 17:48:06 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 01:52:25 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	reset_hook(int keycode, t_fractol *fractol)
 	fractol->is_fixed = 0;
 	fractol->color_type = 0;
 	fractol->power = 2;
+	fractol->set_colors = 0;
 }
 
 void	zoom_hook(int keycode, t_fractol *fractol)
@@ -55,12 +56,14 @@ void	zoom_hook(int keycode, t_fractol *fractol)
 
 void	color_type(int keycode, t_fractol *fractol)
 {
-	if (keycode != KEY_C)
+	if (keycode != KEY_Z)
 		return ;
 	if (fractol->color_type == 0)
 		fractol->color_type = 1;
 	else if (fractol->color_type == 1)
 		fractol->color_type = 2;
 	else if (fractol->color_type == 2)
+		fractol->color_type = 3;
+	else if (fractol->color_type == 3)
 		fractol->color_type = 0;
 }

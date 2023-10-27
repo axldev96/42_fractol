@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 23:23:10 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 23:15:35 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:49:02 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 
 int	calculate_fractal(int x, int y, t_fractol *fractol)
 {
-	t_complex	z;
-	t_complex	c;
-	t_scales	scales;
-	int			i;
+	t_complex		z;
+	t_complex		c;
+	t_scales		scales;
+	int				i;
+	const t_color	color = fractol->color_palette.colors[fractol->set_colors];
 
 	i = 0;
 	init_t_scales(&scales);
@@ -35,7 +36,7 @@ int	calculate_fractal(int x, int y, t_fractol *fractol)
 		if ((z.real * z.real) + (z.imag * z.imag) > HYPOTENUSE)
 		{
 			init_scale_color(&scales.scale_color, i, fractol);
-			return (interpolate_color(&scales.scale_color));
+			return (interpolate_colors_bits(&scales.scale_color, color));
 		}
 		++i;
 	}
@@ -48,13 +49,13 @@ void	draw_fractal(t_fractol *fractol)
 	int	y;
 	int	color;
 
-	color = 0;
+	color = BLACK;
 	x = -1;
 	y = -1;
-	while (++x < (WIDTH - 1))
+	while (++x < WIDTH)
 	{
 		y = -1;
-		while (++y < (HEIGHT - 1))
+		while (++y < HEIGHT)
 		{
 			color = calculate_fractal(x, y, fractol);
 			ft_mlx_pixel_put(&fractol->data, x, y, color);

@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 03:18:27 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 19:57:27 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 00:54:27 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,6 @@ void	init_t_fractol(t_fractol *fractol)
 	fractol->zoom = 0.0;
 	fractol->fractal_name = NULL;
 	fractol->max_iter = 0;
+	fractol->set_colors = 0;
+	set_color_palette(fractol);
 }

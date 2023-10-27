@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:12:31 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 23:01:29 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/26 01:58:53 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static int	check_doubles(char **av)
 	if (ft_strlen(av[2]) > MAX_LEN_DBL || ft_strlen(av[3]) > MAX_LEN_DBL)
 		return (0);
 	if (!iter_doubles(av, &dot_flag))
+		return (0);
+	if (av[2][0] == '\0' || av[3][0] == '\0')
 		return (0);
 	dbl_1 = ft_strtod(av[2]);
 	dbl_2 = ft_strtod(av[3]);

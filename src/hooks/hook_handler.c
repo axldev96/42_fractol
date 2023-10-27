@@ -6,11 +6,29 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:23:56 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 23:11:41 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 02:34:33 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	change_color_palette(int keycode, t_fractol *fractol)
+{
+	if (keycode == KEY_C)
+	{
+		if (fractol->set_colors == 9)
+			fractol->set_colors = 0;
+		else
+			fractol->set_colors++;
+	}
+	else if (keycode == KEY_V)
+	{
+		if (fractol->set_colors == 0)
+			fractol->set_colors = 9;
+		else
+			fractol->set_colors--;
+	}
+}
 
 void	fix_image(int keycode, t_fractol *fractol)
 {
@@ -37,6 +55,7 @@ int	hook_key_handler(int keycode, t_fractol *fractol)
 	reset_hook(keycode, fractol);
 	color_type(keycode, fractol);
 	power_up(keycode, fractol);
+	change_color_palette(keycode, fractol);
 	draw_fractal(fractol);
 	return (0);
 }

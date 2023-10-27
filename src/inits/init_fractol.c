@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:15:26 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 23:06:44 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 01:53:13 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_fractol(t_fractol *fractol, char **av)
 	fractol->is_fixed = 1;
 	fractol->color_type = 0;
 	fractol->power = 2;
+	fractol->set_colors = 0;
 	if (fractol->fname == Julia)
 	{
 		fractol->julia.julia_complex.real = ft_strtod(av[2]);
