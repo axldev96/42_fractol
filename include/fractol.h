@@ -6,7 +6,7 @@
 /*   By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 02:26:04 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/27 02:23:41 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:22:02 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,17 @@
 
 # define WIDTH 600
 # define HEIGHT 600
-# define MAX_ITER 21
-
+# define MAX_ITER 12
 # define ON_DESTROY 17
 # define ON_MOUSEMOVE 6
-
 # define MAX_LEN_DBL 317
-
 # define HYPOTENUSE 4
+# define TRANSITION_SPEED 0.70
 
 // Colors
 # define BLACK 0x00000000
 # define WHITE 0x00FFFFFF
-# define COLOR_PALETTE_LEN 7
+# define PALETTE_LEN 11
 
 typedef struct s_trgb
 {
@@ -66,7 +64,7 @@ typedef struct s_color
 
 typedef struct s_color_palette
 {
-	t_color	colors[9];
+	t_color	colors[PALETTE_LEN];
 }			t_color_palette;
 
 enum e_fnames

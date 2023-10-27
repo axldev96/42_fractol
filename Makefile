@@ -6,7 +6,7 @@
 #    By: acaceres <acaceres@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 18:50:31 by acaceres          #+#    #+#              #
-#    Updated: 2023/10/27 02:47:09 by acaceres         ###   ########.fr        #
+#    Updated: 2023/10/27 14:04:16 by acaceres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ FT_PRINTF_DIR = ft_printf
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror # -g3 -fsanitize=address
 INCL = -Iinclude
 MLX_MAC_INCLUDE = -Imlx
 MLX_MAC_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit

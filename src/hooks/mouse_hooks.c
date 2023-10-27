@@ -6,18 +6,35 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 08:10:54 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/25 19:57:03 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:04:13 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	do_zoom(t_fractol *fractol, double new_zoom,
+		double new_pos_x, double new_pos_y)
+{
+	double		final_x;
+	double		final_y;
+	double		dzoom;
+
+	final_x = new_pos_x - fractol->pos_x;
+	final_y = new_pos_y - fractol->pos_y;
+	dzoom = fractol->zoom - new_zoom;
+	fractol->pos_x += (final_x * TRANSITION_SPEED) / 3;
+	fractol->pos_y += (final_y * TRANSITION_SPEED) / 3;
+	fractol->zoom += dzoom * TRANSITION_SPEED;
+}
 
 int	hook_mouse_handler(int action, int x, int y, t_fractol *fractol)
 {
 	t_scales	mouse_scales;
 	double		new_pos_x;
 	double		new_pos_y;
+	double		new_zoom;
 
+	new_zoom = 0.0;
 	init_t_scales(&mouse_scales);
 	init_scale_real(&mouse_scales.scale_real, x);
 	init_scale_imag(&mouse_scales.scale_imag, y);
@@ -26,11 +43,10 @@ int	hook_mouse_handler(int action, int x, int y, t_fractol *fractol)
 	new_pos_y = (interpolate(&mouse_scales.scale_imag)
 			* fractol->zoom) + fractol->pos_y;
 	if (action == MOUSE_UP)
-		fractol->zoom /= 1.4;
+		new_zoom = fractol->zoom / 1.1;
 	else if (action == MOUSE_DOWN)
-		fractol->zoom *= 1.4;
-	fractol->pos_x = new_pos_x;
-	fractol->pos_y = new_pos_y;
+		new_zoom = fractol->zoom / 0.9;
+	do_zoom(fractol, new_zoom, new_pos_x, new_pos_y);
 	draw_fractal(fractol);
 	return (0);
 }

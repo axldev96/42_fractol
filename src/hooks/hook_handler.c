@@ -6,7 +6,7 @@
 /*   By: acaceres <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 06:23:56 by acaceres          #+#    #+#             */
-/*   Updated: 2023/10/27 02:34:33 by acaceres         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:21:29 by acaceres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	change_color_palette(int keycode, t_fractol *fractol)
 {
 	if (keycode == KEY_C)
 	{
-		if (fractol->set_colors == 9)
+		if (fractol->set_colors == PALETTE_LEN)
 			fractol->set_colors = 0;
 		else
 			fractol->set_colors++;
@@ -24,7 +24,7 @@ void	change_color_palette(int keycode, t_fractol *fractol)
 	else if (keycode == KEY_V)
 	{
 		if (fractol->set_colors == 0)
-			fractol->set_colors = 9;
+			fractol->set_colors = PALETTE_LEN;
 		else
 			fractol->set_colors--;
 	}
